@@ -651,12 +651,16 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .insight-consultation-actions { justify-content: flex-start; }
 }
 @media (max-width: 680px) {
+  .insight-section-title { font-size: 1.5rem; line-height: 1.5; letter-spacing: -.055em; }
   .insight-entry-section, .insight-articles-section, .insight-article-content { padding: 54px 0; }
   .insight-entry-grid, .insight-article-cards { grid-template-columns: 1fr; }
   .insight-entry-grid article { min-height: 0; padding: 22px 20px 48px; }
   .insight-entry-grid h3 { margin-top: 22px; font-size: 1.2rem; }
+  .insight-entry-grid span { font-size: .94rem; line-height: 1.85; }
   .insight-section-heading { align-items: start; flex-direction: column; gap: 16px; }
   .insight-article-cards article > a { padding: 21px 20px; }
+  .insight-article-summary { font-size: .94rem; line-height: 1.85; }
+  .insight-article-link { font-size: .84rem; }
   .insight-themes-section, .insight-consultation-section, .insight-related-consultation { padding: 54px 0; }
   .insight-consultation-actions { width: 100%; flex-direction: column; }
   .insight-consultation-actions .button { width: 100%; white-space: normal; }
