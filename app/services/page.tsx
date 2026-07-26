@@ -3,12 +3,13 @@ import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import Link from "next/link";
 import { consultationCategories, serviceConsultationProcess } from "../../content/site";
+import { ConsultationCategories } from "./ConsultationCategories";
 
 export default function ServicesPage() {
   return <><SiteHeader /><main>
     <section id="consultation-topics" className="services-topics" aria-labelledby="consultation-topics-title"><div className="container">
       <h1 id="consultation-topics-title">困り方別に見る相談</h1><p className="services-topics-lead">近い困りごとを選ぶと、その状況で何を整理し、どのような支援へ進めるかをご覧いただけます。</p>
-      <div className="service-category-grid">{consultationCategories.map((category) => <article id={`category-${category.id}`} key={category.id}><header><span>{category.id}</span><div><h2>{category.title}</h2><p>{category.outcome}</p><p className="service-category-prompt">この中から近い状況を選ぶ</p></div></header><ul>{category.scenarios.map((scenario) => <li key={scenario.id}><Link href={`/services/${scenario.id}`}><span className="service-scenario-title">{scenario.title}</span><span className="service-scenario-arrow" aria-hidden="true">↗</span></Link></li>)}</ul></article>)}</div>
+      <ConsultationCategories categories={consultationCategories} />
     </div></section>
 
     <section id="support-process" className="section section-muted" aria-labelledby="support-process-title"><div className="container">
