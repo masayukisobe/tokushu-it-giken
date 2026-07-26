@@ -1,4 +1,3 @@
-import { PageHero } from "../components/PageHero";
 import { SectionHeading } from "../components/SectionHeading";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
@@ -7,10 +6,8 @@ import { fourCommonUnknowns, serviceConsultationProcess, serviceConsultationStor
 
 export default function ServicesPage() {
   return <><SiteHeader /><main>
-    <PageHero eyebrow="SERVICES" title="技術課題の相談" lead="誰に相談すればよいか分からない段階から、技術判断、検証、設計、実装まで、必要な範囲を支援します" />
-
-    <section id="consultation-topics" className="section" aria-labelledby="consultation-topics-title"><div className="container">
-      <SectionHeading eyebrow="CONSULTATION TOPICS" title="困り方別に見る相談" text="サービス名を選ぶ必要はありません。今の困りごとに近いものから、ご相談ください。" />
+    <section id="consultation-topics" className="services-topics" aria-labelledby="consultation-topics-title"><div className="container">
+      <p className="eyebrow">SERVICES</p><h1 id="consultation-topics-title">困り方別に見る相談</h1><p className="services-topics-lead">サービス名を選ぶ必要はありません。今の困りごとに近いものから、ご相談ください。</p>
       <ul className="service-topic-grid">{serviceConsultationTopics.map((topic, index) => <li key={topic}><span>{String(index + 1).padStart(2, "0")}</span>{topic}</li>)}</ul>
     </div></section>
 
