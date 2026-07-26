@@ -37,7 +37,7 @@ export default async function ConsultationScenePage({
     <main className="scenario-page">
       <section className="scenario-hero" aria-labelledby="scenario-title">
         <div className="container">
-          <p className="eyebrow">01 / 相談シーン</p>
+          <p className="eyebrow">01 / 課題シーン</p>
           <p className="scenario-category">{scene.categoryTitle}</p>
           <h1 id="scenario-title">{scene.title}</h1>
           <p className="scenario-lead">{intro}</p>
@@ -52,7 +52,7 @@ export default async function ConsultationScenePage({
       <section className="scenario-section" aria-labelledby="situations-title">
         <div className="container scenario-content-grid">
           <div className="scenario-section-heading">
-            <p className="eyebrow">02 / よくある状況</p>
+            <p className="eyebrow">02 / 派生する困りごと</p>
             <h2 id="situations-title">例えば、こんな状況です</h2>
           </div>
           <ul className="scenario-issue-list">
@@ -78,7 +78,7 @@ export default async function ConsultationScenePage({
               </li>)}
             </ul>
             <div className="scenario-outcomes">
-              <h3>得られるもの</h3>
+              <h3>相談後に得られること</h3>
               <ul>
                 {initialOutcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
               </ul>

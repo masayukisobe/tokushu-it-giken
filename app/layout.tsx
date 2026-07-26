@@ -7,10 +7,10 @@ const socialImages = siteUrl ? [{ url: new URL(`${publicAssetPath}/og.png`, site
 
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  title: { default: "特殊IT技研 | どこに頼めばよいか分からない技術課題を、構造から解く。", template: "%s | 特殊IT技研" },
-  description: "前例や専門家が見つからない複雑な技術課題を整理し、技術判断から検証・設計・実装まで支援するエンジニアリングサービスです。",
-  openGraph: { title: "特殊IT技研 | どこに頼めばよいか分からない技術課題を、構造から解く。", description: "複数領域にまたがる技術課題を整理し、技術判断から検証・設計・実装まで支援します。", type: "website", locale: "ja_JP", ...(socialImages ? { images: socialImages } : {}) },
-  twitter: { card: "summary_large_image", title: "特殊IT技研 | どこに頼めばよいか分からない技術課題を、構造から解く。", description: "複数領域にまたがる技術課題を整理し、技術判断から検証・設計・実装まで支援します。", ...(socialImages ? { images: socialImages.map((image) => image.url) } : {}) },
+  title: { default: "特殊IT技研 | 技術課題に、見立てと次の一手を。", template: "%s | 特殊IT技研" },
+  description: "前例も頼れる専門家も見つからない技術課題を、事業要件と現場の制約をふまえて読み解きます。一次情報の調査と検証で判断材料を整え、必要に応じて設計・実装まで支援します。",
+  openGraph: { title: "特殊IT技研 | 技術課題に、見立てと次の一手を。", description: "前例も頼れる専門家も見つからない技術課題を、一次情報の調査と検証で読み解き、必要に応じて設計・実装まで支援します。", type: "website", locale: "ja_JP", ...(socialImages ? { images: socialImages } : {}) },
+  twitter: { card: "summary_large_image", title: "特殊IT技研 | 技術課題に、見立てと次の一手を。", description: "前例も頼れる専門家も見つからない技術課題を、一次情報の調査と検証で読み解き、必要に応じて設計・実装まで支援します。", ...(socialImages ? { images: socialImages.map((image) => image.url) } : {}) },
   robots: { index: true, follow: true },
   icons: { icon: `${publicAssetPath}/favicon.svg` },
 };
