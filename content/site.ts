@@ -10,7 +10,7 @@ export const site = {
 export const heroPositioning = "経営判断だけを扱うのではなく、技術的根拠と実装可能性を確認するエンジニアリングサービスです。";
 export const problemQualification = "ひとつでも当てはまる場合、まずは状況の整理からご相談いただけます。";
 export const problemNext = "資料や論点が十分に揃っていなくても構いません。何が止まり、誰の判断が必要かを一緒に確認します。";
-export const firstContactSteps = ["送信内容を確認する", "30分の相談で論点を整理する", "自分で進めるか、継続支援が必要かを判断する"];
+export const firstContactSteps = ["送信内容を確認する", "30分の相談で論点を整理する", "お客様自身で進めるか、継続支援が必要かを判断する"];
 
 export const consultationCategories = [
   {
@@ -101,7 +101,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "最初に確認すべき論点",
       "次に相談すべき相手と伝える内容",
     ],
-    completionNote: "相談先と進め方が分かれば、30分で終了して構いません",
+    completionNote: "相談先と進め方が分かれば、30分で完了です",
     paidSupport: [
       {
         goal: "課題の正体を明らかにする",
@@ -142,7 +142,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "必要な専門性と相談先の役割",
       "次の協議で確認する内容と進め方",
     ],
-    completionNote: "相談の順番と関係者の役割が決まれば、30分で終了して構いません",
+    completionNote: "相談の順番と関係者の役割が決まれば、30分で完了です",
     paidSupport: [
       {
         goal: "全体像と論点の境界を明らかにする",
@@ -182,7 +182,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "先に確認すべきリスクと一次情報",
       "PoCを行う場合の目的と検証範囲",
     ],
-    completionNote: "採用判断に必要な確認事項が決まれば、30分で終了して構いません",
+    completionNote: "採用判断に必要な確認事項が決まれば、30分で完了です",
     paidSupport: [
       {
         goal: "採用する意味を明確にする",
@@ -222,7 +222,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "最初に検証すべき仮説",
       "次の調査・試作へ進むための範囲",
     ],
-    completionNote: "最初に確かめることと進め方が決まれば、30分で終了して構いません",
+    completionNote: "最初に確かめることと進め方が決まれば、30分で完了です",
     paidSupport: [
       {
         goal: "企画と実現条件を整理する",
@@ -262,7 +262,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "ベンダーに確認すべき質問",
       "社内で判断するための次の一手",
     ],
-    completionNote: "確認すべき点と社内の判断順が決まれば、30分で終了して構いません",
+    completionNote: "確認すべき点と社内の判断順が決まれば、30分で完了です",
     paidSupport: [
       {
         goal: "提案の前提と妥当性を確認する",
@@ -302,7 +302,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "関係者で共有できる選定の基準",
       "選定または追加検証の進め方",
     ],
-    completionNote: "比較軸と追加確認の順番が決まれば、30分で終了して構いません",
+    completionNote: "比較軸と追加確認の順番が決まれば、30分で完了です",
     paidSupport: [
       {
         goal: "比較の軸をつくる",
@@ -342,7 +342,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "関係者ごとに決めること・確認すること",
       "次の検証または協議へ進む手順",
     ],
-    completionNote: "最初に打開する論点と進め方が決まれば、30分で終了して構いません",
+    completionNote: "最初に打開する論点と進め方が決まれば、30分で完了です",
     paidSupport: [
       {
         goal: "停滞の構造を見える化する",
@@ -382,7 +382,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "再現・切り分けに必要な条件",
       "回避策と恒久対応を判断するための次の一手",
     ],
-    completionNote: "次に確かめる仮説と検証順が決まれば、30分で終了して構いません",
+    completionNote: "次に確かめる仮説と検証順が決まれば、30分で完了です",
     paidSupport: [
       {
         goal: "原因候補を切り分ける",
@@ -419,7 +419,7 @@ export const serviceConsultationProcess = [
   "必要に応じて設計・実装まで支援",
 ];
 
-export const freeConsultationSteps = ["相談", "論点整理", "その場で回答できることを回答", "自分で進める、または継続支援"];
+export const freeConsultationSteps = ["相談", "論点整理", "その場で回答できることを回答", "お客様自身で進める、または継続支援"];
 
 export const consultationMemo = [
   { title: "今、何が起きているか", text: "現象や困っている場面を、一言で構いません", example: "例：提案は受けたが、採用してよいか判断できない" },

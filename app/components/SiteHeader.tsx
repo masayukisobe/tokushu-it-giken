@@ -26,6 +26,7 @@ export function SiteHeader() {
     <button className="menu-button" type="button" aria-expanded={menuOpen} aria-controls="site-navigation" onClick={() => { setMenuOpen(!menuOpen); setOpenGroup(null); }}>{menuOpen ? "閉じる" : "メニュー"}</button>
     {openGroup && <button className="nav-dismiss" type="button" aria-label="メニューを閉じる" tabIndex={-1} onClick={() => setOpenGroup(null)} />}
     <nav id="site-navigation" className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="主要メニュー">
+      <Link className="nav-top" href="/" onClick={closeNavigation}>トップ</Link>
       {navigation.map((item) => { const isOpen = openGroup === item.label; const panelId = `navigation-${item.label.toLowerCase()}`; return <div className={isOpen ? "nav-group is-open" : "nav-group"} key={item.href}>
         <button className="nav-trigger" type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenGroup(isOpen ? null : item.label)}>{item.label}<span className="nav-caret" aria-hidden="true" /></button>
         <div className="nav-panel" id={panelId}>{item.items.map((subItem) => <Link key={subItem.href} href={subItem.href} onClick={closeNavigation}><strong>{subItem.label}</strong><small>{subItem.description}</small></Link>)}</div>
