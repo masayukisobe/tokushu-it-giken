@@ -57,7 +57,7 @@ export const reasonsToEntrust = [
   "調査・助言で終わらず、検証・設計・実装まで対応する",
 ];
 
-export const representativeSummary = "代表者は情報工学系大学院修了後、AI・ソフトウェア・ロボティクスなどの開発を経験。約10年間、顧客ヒアリングから技術調査、設計・実装、説明までを一貫して担っています。";
+export const representativeSummary = "代表者は情報工学系大学院修了後、ITインフラ・クラウド・Web・AI・ロボティクスなど幅広い開発と技術コンサルティングを経験。約10年間、顧客ヒアリングから技術調査、設計・実装、説明までを一貫して担っています。";
 
 export const consultationScenes = consultationCategories.flatMap((category) => category.scenarios.map((scene) => ({ ...scene, categoryId: category.id, categoryTitle: category.title })));
 
