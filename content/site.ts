@@ -52,12 +52,26 @@ export const consultationCategories = [
 ];
 
 export const reasonsToEntrust = [
-  "未知の技術領域でも、仕様・標準文書・SDK・論文などの一次情報から読み解く",
-  "技術を軸に、事業要件と現場の制約をふまえて判断する",
-  "調査・助言で終わらず、検証・設計・実装まで対応する",
+  {
+    title: "未知の領域を、一次情報から立ち上げる",
+    text: "仕様書、標準文書、SDK、論文、実装コードまで確認し、技術の全体像・制約・未確認事項を整理します。",
+    examples: "対応例：RDF／OWL、ドローンSDK、Web標準、ブロックチェーン、ロボティクス、AI・RAG",
+  },
+  {
+    title: "調査する人と、作る人が分かれない",
+    text: "課題整理、技術調査、比較、検証、設計、実装まで同じ視点で扱い、調査結果を報告して終わらせません。",
+  },
+  {
+    title: "特定製品を売るための結論を出さない",
+    text: "特定製品や開発受注を前提とせず、採用しない選択も含めて判断します。30分で方向が分かれば、その場で完了して構いません。",
+  },
+  {
+    title: "技術を、現実に動く条件まで落とす",
+    text: "技術的な可能性だけでなく、事業要件、既存システム、データ、人員、予算、運用条件を確認し、必要な調査・検証・設計・実装を定めます。",
+  },
 ];
 
-export const representativeSummary = "代表者は情報工学系大学院修了後、ITインフラ・クラウド・Web・AI・ロボティクスなど幅広い開発と技術コンサルティングを経験。約10年間、顧客ヒアリングから技術調査、設計・実装、説明までを一貫して担っています。";
+export const representativeSummary = "代表者は情報工学系大学院修了後、ITインフラ・クラウド・Web・AI・ロボティクスの開発と技術コンサルティングを経験。約10年間、調査から設計・実装までを一貫して担っています。";
 
 export const consultationScenes = consultationCategories.flatMap((category) => category.scenarios.map((scene) => ({ ...scene, categoryId: category.id, categoryTitle: category.title })));
 
