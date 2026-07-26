@@ -72,8 +72,8 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 @media (max-width: 680px) { .consultation-memo-section { padding: 64px 0; }.consultation-memo-grid { margin-top: 34px; }.consultation-memo-grid li { padding: 21px 20px; }.consultation-memo-grid h3 { margin-top: 24px; }.consultation-memo-cta .button { width: 100%; } }
 
 /* Decision-first home page: explain the work once, then make the next action clear. */
-.hero.hero-decision { min-height: 0; background: var(--paper); }
-.hero-decision .hero-grid { pointer-events: none; background-image: linear-gradient(rgba(20,32,29,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(20,32,29,.035) 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(to right, rgba(0,0,0,.78), transparent 100%); }
+.hero.hero-decision { min-height: 0; background: transparent; }
+.hero-decision .hero-grid { display: none; }
 .hero-decision .hero-inner.hero-layout { display: block; width: min(980px, calc(100% - 48px)); padding: 64px 0 54px; }
 .hero-decision .hero-message { max-width: 840px; }
 .hero-decision .hero-eyebrow { margin-bottom: 15px; }
@@ -420,9 +420,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .page-hero {
   padding: 68px 0 60px;
   border-bottom: 1px solid var(--line);
-  background-color: var(--paper);
-  background-image: linear-gradient(rgba(18, 25, 24, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(18, 25, 24, .035) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background: transparent;
   color: var(--ink);
 }
 .page-hero .eyebrow { color: var(--accent); }
@@ -431,9 +429,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 
 /* Give each page introduction the same quiet, paper-like surface as the top page. */
 .services-topics, .scenario-hero, .products-list-section {
-  background-color: var(--paper);
-  background-image: linear-gradient(rgba(18, 25, 24, .028) 1px, transparent 1px), linear-gradient(90deg, rgba(18, 25, 24, .028) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background: transparent;
 }
 
 /* A label and its caret are one menu control. */
@@ -561,7 +557,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .home-consultation-layout .button { flex: 0 0 auto; white-space: nowrap; }
 
 /* Contact has one promise, one action, and one follow-up path. */
-.contact-hero { padding: 68px 0 60px; border-bottom: 1px solid var(--line); background-color: var(--paper); background-image: linear-gradient(rgba(18, 25, 24, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(18, 25, 24, .035) 1px, transparent 1px); background-size: 36px 36px; }
+.contact-hero { padding: 68px 0 60px; border-bottom: 1px solid var(--line); background: transparent; }
 .contact-hero h1 { max-width: 760px; margin: 0; font-size: clamp(2.15rem, 3.8vw, 3.1rem); line-height: 1.3; letter-spacing: -.045em; }
 .contact-hero .container > p:last-child { max-width: 760px; margin: 18px 0 0; color: #40504a; font-size: 1rem; line-height: 1.95; }
 .contact-form-section { padding: 74px 0; background: var(--accent-pale); }
