@@ -37,17 +37,22 @@ export default async function ConsultationScenePage({
     <main className="scenario-page">
       <section className="scenario-hero" aria-labelledby="scenario-title">
         <div className="container">
-          <p className="eyebrow">01 / THE SITUATION</p>
+          <p className="eyebrow">01 / 相談シーン</p>
           <p className="scenario-category">{scene.categoryTitle}</p>
           <h1 id="scenario-title">{scene.title}</h1>
           <p className="scenario-lead">{intro}</p>
+          <div className="scenario-hero-actions">
+            <Link className="button button-primary" href={contactHref}>
+              この状況について30分相談する <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
       <section className="scenario-section" aria-labelledby="situations-title">
         <div className="container scenario-content-grid">
           <div className="scenario-section-heading">
-            <p className="eyebrow">02 / EXAMPLES</p>
+            <p className="eyebrow">02 / よくある状況</p>
             <h2 id="situations-title">例えば、こんな状況です</h2>
           </div>
           <ul className="scenario-issue-list">
@@ -62,7 +67,7 @@ export default async function ConsultationScenePage({
       <section className="scenario-section scenario-section-muted" aria-labelledby="first-consultation-title">
         <div className="container scenario-content-grid">
           <div className="scenario-section-heading">
-            <p className="eyebrow">03 / FIRST 30 MINUTES</p>
+            <p className="eyebrow">03 / 初回30分</p>
             <h2 id="first-consultation-title">初回30分で行うこと</h2>
           </div>
           <div className="scenario-consultation-detail">
@@ -86,7 +91,7 @@ export default async function ConsultationScenePage({
       <section className="scenario-section" aria-labelledby="paid-support-title">
         <div className="container">
           <div className="scenario-section-heading scenario-section-heading-wide">
-            <p className="eyebrow">04 / WHEN MORE SUPPORT IS NEEDED</p>
+            <p className="eyebrow">04 / 追加支援が必要な場合</p>
             <h2 id="paid-support-title">有償支援へ進む場合</h2>
           </div>
           <div className="scenario-support-list">
@@ -111,7 +116,7 @@ export default async function ConsultationScenePage({
       <section className="scenario-contact-cta" aria-labelledby="scenario-contact-title">
         <div className="container">
           <div>
-            <p className="eyebrow">FREE 30-MINUTE CONSULTATION</p>
+            <p className="eyebrow">30分無料相談</p>
             <h2 id="scenario-contact-title">この状況について30分相談する</h2>
             <p>相談内容には「{scene.title}」を引き継ぎます</p>
           </div>
