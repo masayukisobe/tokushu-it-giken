@@ -541,7 +541,7 @@ export type ResearchProject = {
 export const researchProjects: ResearchProject[] = [
   { id: "ten-page-university", level: "知の導入", title: "10ページ大学", description: "聞いたことのある言葉を、仕組みまで説明できる教養へ変える短編教材シリーズ", articleUrl: "https://note.com/isobe324649/n/nf429404b8a2b" },
   { id: "ai-learning", level: "知の深耕", title: "KnowState", description: "AIがユーザーの理解度合いを推定し、学びをアシストする教育基盤", status: "開発中" },
-  { id: "mathlang", level: "知の実践", title: "MathLang", description: "数学的な構造やモデルを、検証可能で実行可能な計算へ接続する技術基盤", status: "開発中" },
+  { id: "mathlang", level: "知の実践", title: "MathLang", description: "数学的な構造やモデルを、AIにより再現可能な計算へ接続する技術基盤", status: "開発中" },
 ];
 
 export const profile = {

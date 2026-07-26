@@ -371,7 +371,13 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .products-list-section { padding: 62px 0 90px; }
 .products-list-section h1 { margin: 0; font-size: clamp(2rem, 3.4vw, 2.7rem); line-height: 1.35; letter-spacing: -.045em; }
 .products-list-section .research-list { margin-top: 32px; }
+.products-list-section .research-list article { grid-template-columns: 150px minmax(180px, .6fr) 1.4fr; gap: 34px; padding: 32px 0; }
+.products-list-section .research-list article > p { color: var(--accent); font-family: inherit; font-size: .95rem; letter-spacing: .04em; line-height: 1.6; }
+.products-list-section .research-list h2 { font-size: clamp(1.65rem, 2.6vw, 2rem); line-height: 1.4; }
+.products-list-section .research-list div > p { font-size: 1rem; line-height: 1.85; }
+.products-list-section .research-list small { margin-top: 11px; font-size: .84rem; }
 .product-article-link { display: inline-flex; gap: 8px; margin-top: 12px; color: var(--accent); font-size: .82rem; font-weight: 700; line-height: 1.6; }
+.products-list-section .product-article-link { font-size: .92rem; }
 .product-article-link:hover, .product-article-link:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 
 @media (max-width: 900px) {
@@ -379,6 +385,8 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .scenario-support-list article { grid-template-columns: minmax(190px, .65fr) minmax(0, 1fr); gap: 24px 44px; }
   .scenario-support-deliverables { grid-column: 2; }
   .scenario-contact-cta > .container { align-items: flex-start; flex-direction: column; }
+  .products-list-section .research-list article { grid-template-columns: 125px minmax(0, 1fr); gap: 22px; }
+  .products-list-section .research-list article > div { grid-column: 2; }
 }
 @media (max-width: 680px) {
   .home-category-links { margin-top: 26px; }
@@ -403,6 +411,8 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .scenario-contact-cta { padding: 52px 0; }
   .scenario-contact-cta .button { width: 100%; white-space: normal; }
   .products-list-section { padding: 48px 0 64px; }
+  .products-list-section .research-list article { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
+  .products-list-section .research-list article > div { grid-column: auto; }
 }
 
 /* A page starts with useful context, not a dark brand panel. */
