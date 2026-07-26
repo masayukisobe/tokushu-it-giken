@@ -1,8 +1,7 @@
-import { SectionHeading } from "./components/SectionHeading";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import Link from "next/link";
-import { consultationCategories, insightCategories, researchProjects } from "../content/site";
+import { consultationCategories } from "../content/site";
 
 export default function Home() {
   return <><SiteHeader /><main>
@@ -11,11 +10,5 @@ export default function Home() {
     </div></section>
 
     <section className="home-consultation-summary" aria-labelledby="consultation-summary-title"><div className="container"><p className="eyebrow">初回30分無料相談</p><h2 id="consultation-summary-title">まずは30分、その場で整理します</h2><p>初回30分は無料です。資料の準備や技術名の整理は必要ありません。その場で解決できることは回答し、追加の調査・検証・設計・実装が必要な場合だけ、その先をご提案します。</p></div></section>
-
-    <section className="section" aria-labelledby="insights-title"><div className="container"><div className="section-heading-row"><SectionHeading eyebrow="インサイト" title="この会社が、どう考えるか" text="特殊IT技研が、技術課題をどう読み、どう判断しているかを公開しています。" /><Link className="text-link" href="/insights">インサイトを見る →</Link></div><div className="insight-category-grid insight-category-grid-four">{insightCategories.slice(0, 4).map((category) => <article id={category.id} key={category.title}><h3>{category.title}</h3><p>{category.description}</p><ul>{category.examples.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div></div></section>
-
-    <section className="section" aria-labelledby="products-title"><div className="container"><div className="section-heading-row"><SectionHeading eyebrow="特殊IT技研の独自制作物" title="プロダクト一覧" text="" /><Link className="text-link" href="/products">プロダクトを見る →</Link></div><div className="research-list">{researchProjects.map((project) => <article id={project.id} key={project.title}><p>{project.level}</p><h3>{project.title}</h3><div><p>{project.description}</p><small>{project.status}</small></div></article>)}</div></div></section>
-
-    <section className="section final-cta-section" aria-labelledby="final-cta-title"><div className="container final-cta"><div><p className="eyebrow">30分無料相談</p><h2 id="final-cta-title">相談先が分からない段階で構いません</h2><p>課題が整理されていなくても、技術名称が分からなくても相談可能です。まず30分で、何を考えるべきかを整理します。</p></div><Link className="button button-primary" href="/contact">30分無料で相談する <span aria-hidden="true">→</span></Link></div></section>
   </main><SiteFooter /></>;
 }

@@ -9,7 +9,7 @@ export function ContactForm() {
   const selectedIssue = searchParams.get("issue")?.trim() ?? "";
 
   if (!contactAction) {
-    return <section className="contact-form contact-form-unavailable" aria-labelledby="contact-unavailable-title"><p className="eyebrow">相談フォーム</p><h3 id="contact-unavailable-title">相談フォームは公開準備中です</h3>{selectedIssue && <p className="contact-selected-issue">選択された相談シーン<br /><strong>{selectedIssue}</strong></p>}<p>送信先の設定が完了するまで、フォームには入力しないでください。公開時には、相談内容を送信できる窓口と個人情報の取り扱いをここに表示します。</p></section>;
+    return <section className="contact-form contact-form-unavailable" aria-labelledby="contact-unavailable-title"><p className="eyebrow">相談フォーム</p><h3 id="contact-unavailable-title">相談フォームは公開準備中です</h3>{selectedIssue && <p className="contact-selected-issue">選択された相談シーン<br /><strong>{selectedIssue}</strong></p>}<p>入力窓口を準備しています。相談内容は、次のうち分かることだけで十分です。</p><ul className="contact-preparation-list"><li><strong>実現・判断したいこと</strong><span>目的が曖昧でも構いません</span></li><li><strong>今、困っている状況</strong><span>技術名が分からなくても構いません</span></li><li><strong>すでに確認したこと</strong><span>資料がなければ空欄で構いません</span></li><li><strong>判断したい時期</strong><span>決まっていなければ不要です</span></li></ul></section>;
   }
   return <form className="contact-form" action={contactAction} method="post">
     <p className="form-intro">案件化を前提としません。分かっている範囲だけで構いません。</p>
