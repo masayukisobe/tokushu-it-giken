@@ -1,6 +1,6 @@
 export const site = {
   name: "特殊IT技研",
-  englishName: "Specialized IT Engineering Lab",
+  englishName: "TOKUSHU IT GIKEN",
   description:
     "前例や専門家が見つからない複雑な技術課題を、全体構造から捉え直し、技術判断から検証・設計・実装まで支援します。",
   email: undefined,
