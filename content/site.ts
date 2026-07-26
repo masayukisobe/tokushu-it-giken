@@ -448,11 +448,9 @@ export const navigation = [
     { label: "30分無料相談", description: "まず状況と次の一手を整理する", href: "/services#free-consultation" },
   ] },
   { label: "インサイト", href: "/insights", items: [
-    { label: "特殊IT課題百科", description: "課題構造から探す知見", href: "/insights#problem-encyclopedia" },
-    { label: "技術判断ノート", description: "技術を意思決定へつなぐ記録", href: "/insights#decision-notes" },
-    { label: "使える技術解説", description: "業務で使える理解へ変える解説", href: "/insights#explainers" },
-    { label: "調査レポート", description: "採用判断に必要な調査", href: "/insights#research-reports" },
-    { label: "技術ブログ", description: "開発と検証で得た発見", href: "/insights#technical-blog" },
+    { label: "課題から探す", description: "特殊IT課題百科から困りごとを整理する", href: "/insights/issues" },
+    { label: "技術から探す", description: "使える技術解説から採用条件を考える", href: "/insights/technologies" },
+    { label: "すべての記事", description: "判断に役立つインサイトを一覧で見る", href: "/insights" },
   ] },
   { label: "プロダクト", href: "/products", items: [
     { label: "プロダクト一覧", description: "特殊IT技研の独自制作物", href: "/products" },
@@ -515,19 +513,95 @@ export const technologyGroups = [
   { title: "基盤技術", topics: ["クラウド", "認証", "権限管理", "コンパイラ", "ソフトウェアアーキテクチャ"] },
 ];
 
-export const insightCategories = [
-  { id: "problem-encyclopedia", title: "特殊IT課題百科", description: "技術名ではなく、企業が直面する課題構造から探すための知見です。", examples: ["社内にも外注先にも詳しい人がいない", "複数ベンダーの境界で問題が起きている"] },
-  { id: "decision-notes", title: "技術判断ノート", description: "新しい技術を、企業の意思決定という観点から解釈する記録です。", examples: ["RAGは何を解決し、何を解決しないのか", "AIエージェント導入で先に決めること"] },
-  { id: "explainers", title: "使える技術解説", description: "複雑な技術を、業務や意思決定で使える理解へ変える解説です。", examples: ["PoCは製品のミニ版ではなく、不確実性を減らす実験", "ガバナンスは許可された速度域を定める仕組み"] },
-  { id: "research-reports", title: "調査レポート", description: "新しい技術や標準仕様を、採用判断に必要な論点から読み解く記録です。", examples: ["仕様・標準・SDKを読む際の確認観点", "技術選定の前に確認する条件"] },
-  { id: "technical-blog", title: "技術ブログ", description: "開発や調査で得た技術的な発見を、背景と判断の過程とともに共有します。", examples: ["実装・検証で見えた条件", "技術を現場へ適用する際の論点"] },
+export type InsightKind = "issue" | "technology";
+
+export type InsightArticle = {
+  slug: string;
+  kind: InsightKind;
+  series: string;
+  title: string;
+  summary: string;
+  tags: string[];
+  relatedScene: { id: string; title: string };
+  sections: Array<{ title: string; text: string; points?: string[] }>;
+};
+
+export const insightThemeTags = ["AI・生成AI", "データ・知識基盤", "ソフトウェア設計", "ロボティクス・組み込み", "数理・シミュレーション"];
+
+export const insightArticles: InsightArticle[] = [
+  {
+    slug: "poc-to-production",
+    kind: "issue",
+    series: "特殊IT課題百科",
+    title: "PoCが本番化できないとき、最初に分けるべき論点",
+    summary: "試作が動いていても次へ進めないとき、性能だけでなく、データ、運用、責任範囲を分けて確かめます",
+    tags: ["AI・生成AI", "ソフトウェア設計"],
+    relatedScene: { id: "development-stalled", title: "開発が停滞しているが、ボトルネックがはっきりしない" },
+    sections: [
+      { title: "症状", text: "試作やデモは動いているのに、本番へ進める判断ができない。関係者ごとに心配している点が異なり、追加開発の範囲も決められない状態です" },
+      { title: "問題の構造", text: "PoCは「技術が動くか」を小さく確かめるものです。一方で本番では、利用者に価値が届くか、必要なデータを継続して扱えるか、障害時に運用できるかまで成立させる必要があります", points: ["何を確かめるPoCだったかが、関係者の間で揃っていない", "本番に必要なデータ、性能、セキュリティ、運用の条件が試作に含まれていない", "誰が判断し、誰が運用するかが決まっていない"] },
+      { title: "切り分け方", text: "まず、PoCで確認済みのことと、本番化のために未確認のことを分けます。そのうえで、価値、技術、運用の三つを同じ表に置くと、次に検証すべき条件が見えてきます" },
+      { title: "最初に確認すること", text: "利用者が日常業務で使う場面、必要なデータの取得・更新方法、性能と費用の上限、障害時の対応者を確認します。全てを一度に解くのではなく、本番化を止めている条件から優先します" },
+      { title: "関連する相談", text: "PoCの先で何が止まっているかを整理し、追加検証、設計見直し、実装のどこまで必要かを判断します" },
+    ],
+  },
+  {
+    slug: "vendor-proposal-comparison",
+    kind: "issue",
+    series: "特殊IT課題百科",
+    title: "ベンダー提案を比べられないとき、最初にそろえるべき評価軸",
+    summary: "提案書の言葉や価格だけを比べず、自社の目的と制約から同じ評価軸をつくります",
+    tags: ["ソフトウェア設計", "データ・知識基盤"],
+    relatedScene: { id: "vendor-proposal", title: "提案の前提・妥当性・リスクを評価できない" },
+    sections: [
+      { title: "症状", text: "複数の提案を受け取ったが、構成も前提も価格の含む範囲も異なり、どれが自社に合うか判断できない状態です" },
+      { title: "問題の構造", text: "提案は各社の得意な進め方で書かれます。そのため、機能、導入範囲、運用責任、将来の拡張性が同じ粒度で揃っていないまま比較すると、価格や見た目の機能だけで決めてしまいます", points: ["提案ごとに前提となる業務やデータの扱いが異なる", "初期費用と、その後の運用・変更費用が混ざっている", "自社とベンダーの責任分担が曖昧なままになっている"] },
+      { title: "切り分け方", text: "先に自社側の目的、守るべき制約、優先順位を置きます。その評価軸で各提案の前提、できること、できないこと、追加確認事項を並べると、比較すべき論点が揃います" },
+      { title: "最初に確認すること", text: "解決したい業務上の問題、必須条件、導入後に誰が運用するか、将来に変えたい可能性を確認します。評価軸が決まれば、提案者への質問も具体的になります" },
+      { title: "関連する相談", text: "提案の妥当性、リスク、追加確認事項を整理し、比較評価表や選定方針として判断できる形にします" },
+    ],
+  },
+  {
+    slug: "rag-adoption-conditions",
+    kind: "technology",
+    series: "使える技術解説",
+    title: "RAGを説明する前に確認したい、知識と業務の距離",
+    summary: "RAGは資料を読ませれば使える仕組みではありません。必要な知識と、利用者が判断したい仕事の距離を見ます",
+    tags: ["AI・生成AI", "データ・知識基盤"],
+    relatedScene: { id: "product-feasibility", title: "企画中の自社サービスの実現可能性が分からない" },
+    sections: [
+      { title: "概要", text: "RAGは、質問に関係する文書を検索し、その内容を生成AIへ渡して回答をつくる方法です。社内の知識を扱える可能性がある一方、検索と回答の両方が業務に合っている必要があります" },
+      { title: "仕組み", text: "文書を扱いやすい単位に分け、検索用のデータとして整えます。質問時には関連する情報を取り出し、生成AIがその範囲を根拠に回答します。元の資料、分割方法、検索条件が回答の質を左右します" },
+      { title: "できること", text: "複数の資料に散らばる情報を横断して探すこと、回答の根拠となる資料へ戻ること、更新される文書を業務の入口に集めることに向いています" },
+      { title: "向かないこと", text: "資料自体が古い、正解が一つに定まらない、権限ごとに見せてよい情報が複雑に異なる場合は、RAGだけを導入しても期待した回答になりません" },
+      { title: "採用条件", text: "誰がどの場面で何を判断したいか、根拠として使える資料があるか、回答をどこまで信頼してよいかを定める必要があります" },
+      { title: "導入上の論点", text: "文書の更新、権限管理、検索の評価方法、誤回答時の扱い、利用ログの確認まで設計します。画面を作る前に、情報の所有者と更新の責任を決めることが重要です" },
+      { title: "今後の見通し", text: "検索精度や生成モデルは更新され続けます。ただし、業務で使えるかどうかは、知識の整備と評価の仕組みを継続できるかで決まります" },
+      { title: "関連する相談", text: "RAGを使う意味、成立条件、必要な検証の範囲を整理し、採用・見送りを判断できる材料にします" },
+    ],
+  },
+  {
+    slug: "ai-coding-tool-adoption",
+    kind: "technology",
+    series: "使える技術解説",
+    title: "AIコーディングツール導入は、ツール導入ではなく開発プロセス変更である",
+    summary: "コード生成の可否だけでは導入を決められません。利用者、レビュー、情報管理、品質責任まで含めて検討します",
+    tags: ["AI・生成AI", "ソフトウェア設計"],
+    relatedScene: { id: "new-technology", title: "新技術を採用すべきか判断できない" },
+    sections: [
+      { title: "概要", text: "AIコーディングツールは、実装、調査、テスト、レビューの一部を補助します。導入の価値は、生成量ではなく、開発者がより速く確かな判断へ進めるかで決まります" },
+      { title: "仕組み", text: "開発者の入力、リポジトリの文脈、利用できる外部情報をもとに、コードや説明を生成します。扱える文脈の範囲と、組織の情報をどこまで渡せるかが利用条件になります" },
+      { title: "できること", text: "定型的な実装のたたき台、既存コードの説明、テスト案、調査の初速を上げることに役立ちます。経験者のレビューと組み合わせると、学習や探索にも使えます" },
+      { title: "向かないこと", text: "要件が曖昧なまま正解を出すこと、設計責任を置き換えること、機密情報の扱いを自動的に解決することには向きません" },
+      { title: "採用条件", text: "利用対象、扱うコードとデータ、レビューの責任、効果を測る基準を決めます。利用者ごとのスキル差や既存の開発フローも確認が必要です" },
+      { title: "導入上の論点", text: "認証と権限、ソースコードの送信範囲、ログ、監査、レビュー手順、教育、利用禁止の場面を設計します。小さく始め、品質と作業時間の変化を測ります" },
+      { title: "今後の見通し", text: "ツールは急速に進化します。特定製品の比較だけでなく、組織が安全に試し、評価し、運用を更新できる状態をつくることが長期的な成果につながります" },
+      { title: "関連する相談", text: "自社の開発環境で採用する意味、必要な確認、検証計画を整理し、導入可否を判断できるようにします" },
+    ],
+  },
 ];
 
-export const sampleInsights = [
-  { title: "AIコーディングツール導入は、ツール導入ではなく開発プロセス変更である", category: "技術判断ノート", tags: ["生成AI", "開発プロセス"], date: "準備中", status: "準備中" },
-  { title: "PoCが本番化できないとき、最初に分けるべき論点", category: "特殊IT課題百科", tags: ["PoC", "運用設計"], date: "準備中", status: "準備中" },
-  { title: "RAGを説明する前に確認したい、知識と業務の距離", category: "使える技術解説", tags: ["RAG", "知識設計"], date: "準備中", status: "準備中" },
-];
+export const findInsightArticle = (slug: string) => insightArticles.find((article) => article.slug === slug);
 
 export type ResearchProject = {
   id: string;
