@@ -166,7 +166,7 @@ export const navigation = [
     { label: "技術ブログ", description: "開発と検証で得た発見", href: "/insights#technical-blog" },
   ] },
   { label: "プロダクト", href: "/products", items: [
-    { label: "プロダクト・研究開発", description: "自社で開発・提供するもの", href: "/products" },
+    { label: "プロダクト一覧", description: "特殊IT技研の独自制作物", href: "/products" },
     { label: "MathLang", description: "数理ソフトウェア基盤", href: "/products#mathlang" },
     { label: "KnowState", description: "学習支援システム", href: "/products#ai-learning" },
     { label: "10ページ大学", description: "短編教材シリーズ", href: "/products#ten-page-university" },

@@ -8,8 +8,8 @@ export default function ProductsPage() {
     <main>
       <section className="products-list-section" aria-labelledby="products-title">
         <div className="container">
-          <p className="eyebrow">自社プロダクト・研究開発</p>
-          <h1 id="products-title">プロダクト</h1>
+          <p className="eyebrow">特殊IT技研の独自制作物</p>
+          <h1 id="products-title">プロダクト一覧</h1>
           <div className="research-list research-list-page">
             {researchProjects.map((project) => <article id={project.id} key={project.title}>
               <p>{project.level}</p>
