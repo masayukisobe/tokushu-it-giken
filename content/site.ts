@@ -168,7 +168,7 @@ export const navigation = [
   { label: "プロダクト", href: "/products", items: [
     { label: "プロダクト・研究開発", description: "自社で開発・提供するもの", href: "/products" },
     { label: "MathLang", description: "数理ソフトウェア基盤", href: "/products#mathlang" },
-    { label: "AIによる独学支援", description: "学習支援システム", href: "/products#ai-learning" },
+    { label: "KnowState", description: "学習支援システム", href: "/products#ai-learning" },
     { label: "10ページ大学", description: "短編教材シリーズ", href: "/products#ten-page-university" },
   ] },
 ];
@@ -240,10 +240,19 @@ export const sampleInsights = [
   { title: "RAGを説明する前に確認したい、知識と業務の距離", category: "使える技術解説", tags: ["RAG", "知識設計"], date: "準備中", status: "準備中" },
 ];
 
-export const researchProjects = [
-  { id: "mathlang", level: "PRODUCT PLATFORM", title: "MathLang", description: "数学的な構造やモデルを、検証可能で実行可能な計算へ接続する技術基盤。", status: "研究開発中" },
-  { id: "ai-learning", level: "LEARNING PRODUCT", title: "AIによる独学支援", description: "学習者の理解状態を把握し、教材生成、理解確認、対話支援を統合する学習支援システム。", status: "研究構想" },
-  { id: "ten-page-university", level: "EDUCATION PRODUCT", title: "10ページ大学", description: "聞いたことのある言葉を、仕組みまで説明できる教養へ変える短編教材シリーズ。", status: "企画中" },
+export type ResearchProject = {
+  id: string;
+  level: string;
+  title: string;
+  description: string;
+  status: string;
+  articleUrl?: string;
+};
+
+export const researchProjects: ResearchProject[] = [
+  { id: "mathlang", level: "PRODUCT PLATFORM", title: "MathLang", description: "数学的な構造やモデルを、検証可能で実行可能な計算へ接続する技術基盤", status: "開発中" },
+  { id: "ai-learning", level: "LEARNING PRODUCT", title: "KnowState", description: "学習支援システム", status: "開発中" },
+  { id: "ten-page-university", level: "EDUCATION PRODUCT", title: "10ページ大学", description: "聞いたことのある言葉を、仕組みまで説明できる教養へ変える短編教材シリーズ", status: "進行中", articleUrl: "https://note.com/isobe324649/n/nf429404b8a2b" },
 ];
 
 export const profile = {
