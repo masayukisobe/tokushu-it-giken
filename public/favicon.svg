@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">特殊IT技研</title>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="14" fill="#fff" stroke="#aeb8c2"/>
+  <circle cx="25" cy="22.5" r="8" fill="#071a3c"/>
+  <circle cx="25" cy="41.5" r="8" fill="#485a6d"/>
+  <path d="M42 15.5v33" stroke="#0d1b2a" stroke-width="2.4"/>
+</svg>
