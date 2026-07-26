@@ -71,6 +71,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 
 /* Decision-first home page: explain the work once, then make the next action clear. */
 .hero.hero-decision { min-height: 0; background: var(--paper); }
+.hero-decision .hero-grid { pointer-events: none; background-image: linear-gradient(rgba(20,32,29,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(20,32,29,.035) 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(to right, rgba(0,0,0,.78), transparent 100%); }
 .hero-decision .hero-inner.hero-layout { display: block; width: min(980px, calc(100% - 48px)); padding: 64px 0 54px; }
 .hero-decision .hero-message { max-width: 840px; }
 .hero-decision .hero-eyebrow { margin-bottom: 15px; }
