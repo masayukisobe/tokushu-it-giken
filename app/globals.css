@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-:root { --ink: #14201d; --paper: #fafaf7; --muted: #eef1ed; --line: #cdd4cd; --accent: #0c6d68; --accent-pale: #e2f0eb; --white: #fff; }
+:root { --ink: #14201d; --paper: #fafaf7; --muted: #eef1ed; --line: #cdd4cd; --accent: #0c6d68; --accent-pale: #e2f0eb; --white: #fff; --paper-grid: linear-gradient(rgba(20,32,29,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(20,32,29,.035) 1px, transparent 1px); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { min-height: 100%; }
-body { min-height: 100dvh; display: flex; flex-direction: column; margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; font-size: 16px; line-height: 1.8; }
+body { min-height: 100dvh; display: flex; flex-direction: column; margin: 0; background-color: var(--paper); background-image: var(--paper-grid); background-size: 36px 36px; color: var(--ink); font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; font-size: 16px; line-height: 1.8; }
 body > main { flex: 1 0 auto; }
 a { color: inherit; text-decoration: none; } button, input, textarea, select { font: inherit; } button { cursor: pointer; }
 .container { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }.section { padding: 128px 0; }.section-muted { background: var(--muted); }.section-ink { background: var(--ink); color: var(--white); }.eyebrow { margin: 0 0 18px; color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .71rem; font-weight: 700; letter-spacing: .13em; line-height: 1.4; }.section-ink .eyebrow { color: #8bd3c4; }.section-heading { max-width: 660px; }.section-heading h2, .profile-section h2, .contact-section h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.55rem); line-height: 1.35; letter-spacing: -.045em; font-weight: 700; }.section-intro { max-width: 650px; margin: 24px 0 0; color: #56605c; }.section-ink .section-intro { color: #c7d0cb; }
