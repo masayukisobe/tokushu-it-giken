@@ -101,6 +101,7 @@ export const consultationSceneDetails: Record<string, ConsultationSceneDetail> =
       "技術・設備・データ・制度が絡み、問題の所在が分からない",
       "個別の専門家はいるが、全体を見られる人がいない",
       "発注内容を定義できず、見積依頼まで進めない",
+      "必要なエンジニアの役割・経験を定められず、募集要項を作れない",
     ],
     initialActions: [
       "実現・判断したいことを確認",
