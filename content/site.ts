@@ -456,9 +456,9 @@ export const navigation = [
   ] },
   { label: "プロダクト", href: "/products", items: [
     { label: "プロダクト一覧", description: "特殊IT技研の独自制作物", href: "/products" },
-    { label: "MathLang", description: "数理ソフトウェア基盤", href: "/products#mathlang" },
-    { label: "KnowState", description: "学習支援システム", href: "/products#ai-learning" },
     { label: "10ページ大学", description: "短編教材シリーズ", href: "/products#ten-page-university" },
+    { label: "KnowState", description: "AIが理解度合いを推定する教育基盤", href: "/products#ai-learning" },
+    { label: "MathLang", description: "数理ソフトウェア基盤", href: "/products#mathlang" },
   ] },
 ];
 
@@ -539,9 +539,9 @@ export type ResearchProject = {
 };
 
 export const researchProjects: ResearchProject[] = [
-  { id: "ten-page-university", level: "EDUCATION PRODUCT", title: "10ページ大学", description: "聞いたことのある言葉を、仕組みまで説明できる教養へ変える短編教材シリーズ", articleUrl: "https://note.com/isobe324649/n/nf429404b8a2b" },
-  { id: "mathlang", level: "PRODUCT PLATFORM", title: "MathLang", description: "数学的な構造やモデルを、検証可能で実行可能な計算へ接続する技術基盤", status: "開発中" },
-  { id: "ai-learning", level: "LEARNING PRODUCT", title: "KnowState", description: "AIがユーザーの理解度合いを推定し、学びをアシストする教育基盤", status: "開発中" },
+  { id: "ten-page-university", level: "知の導入", title: "10ページ大学", description: "聞いたことのある言葉を、仕組みまで説明できる教養へ変える短編教材シリーズ", articleUrl: "https://note.com/isobe324649/n/nf429404b8a2b" },
+  { id: "ai-learning", level: "知の深耕", title: "KnowState", description: "AIがユーザーの理解度合いを推定し、学びをアシストする教育基盤", status: "開発中" },
+  { id: "mathlang", level: "知の実践", title: "MathLang", description: "数学的な構造やモデルを、検証可能で実行可能な計算へ接続する技術基盤", status: "開発中" },
 ];
 
 export const profile = {
