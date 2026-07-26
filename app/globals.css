@@ -252,3 +252,54 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .service-story-grid dl > div { grid-template-columns: 1fr; gap: 6px; padding: 12px 0; }
   .service-process-list { grid-template-columns: 1fr; }
 }
+
+/* Linked consultation hierarchy: four entry points, eight concrete scenes. */
+.hero-journey .hero-journey-item { display: grid; grid-template-columns: 38px minmax(0, 1fr) 28px minmax(0, 1fr) auto; gap: 14px; align-items: center; min-height: 76px; padding: 12px 0; border-top: 1px solid var(--line); }
+.hero-journey-item:hover .hero-journey-before > p:last-child, .hero-journey-item:focus-visible .hero-journey-before > p:last-child { color: var(--accent); }
+.hero-journey-link { color: var(--accent); font-size: .72rem; font-weight: 700; white-space: nowrap; }
+
+.service-category-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 46px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.service-category-grid article { padding: 24px 26px 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.service-category-grid header { display: grid; grid-template-columns: 38px 1fr; gap: 13px; align-items: start; }
+.service-category-grid header > span, .service-scenario-group > header > span { padding-top: 5px; color: var(--accent); font: 700 .7rem ui-monospace, monospace; letter-spacing: .08em; }
+.service-category-grid h2 { margin: 0; font-size: 1.08rem; line-height: 1.55; }
+.service-category-grid header p { margin: 8px 0 0; color: var(--accent); font-size: .82rem; font-weight: 700; line-height: 1.6; }
+.service-category-grid ul { margin: 23px 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.service-category-grid li { border-bottom: 1px solid var(--line); }
+.service-category-grid a { display: flex; align-items: start; justify-content: space-between; gap: 18px; padding: 12px 0; font-size: .84rem; font-weight: 700; line-height: 1.65; }
+.service-category-grid a span { color: var(--accent); }
+.service-category-grid a:hover, .service-category-grid a:focus-visible { color: var(--accent); outline: 0; }
+
+.service-scenario-groups { margin-top: 56px; border-top: 1px solid var(--line); }
+.service-scenario-group { padding: 34px 0; border-bottom: 1px solid var(--line); }
+.service-scenario-group > header { display: grid; grid-template-columns: 38px 1fr; gap: 14px; align-items: start; }
+.service-scenario-group h2 { margin: 0; font-size: clamp(1.35rem, 2.1vw, 1.7rem); line-height: 1.5; }
+.service-scenario-group > header p { margin: 8px 0 0; color: var(--accent); font-size: .88rem; font-weight: 700; }
+.service-scenario-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin: 26px 0 0 52px; border: 1px solid var(--line); background: var(--line); }
+.service-scenario-list article { padding: 23px 24px; background: var(--paper); }
+.service-scenario-list h3 { margin: 0; font-size: 1rem; line-height: 1.6; }
+.service-scenario-list dl { margin: 22px 0 0; }
+.service-scenario-list dl > div { padding: 12px 0; border-top: 1px solid var(--line); }
+.service-scenario-list dl > div:last-child { padding-bottom: 0; }
+.service-scenario-list dt { color: #53605a; font: 700 .66rem ui-monospace, monospace; letter-spacing: .06em; }
+.service-scenario-list dd { margin: 7px 0 0; font-size: .82rem; line-height: 1.75; }
+.service-scenario-list dl > div:last-child dd { color: var(--accent); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .hero-journey .hero-journey-item { grid-template-columns: 38px minmax(0, 1fr) 24px minmax(0, 1fr); }
+  .hero-journey-link { grid-column: 2 / -1; }
+  .service-category-grid, .service-scenario-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .hero-journey .hero-journey-item { grid-template-columns: 1fr; gap: 9px; padding: 16px 0; }
+  .hero-journey .hero-journey-item > div { padding: 13px 15px; border: 1px solid var(--line); }
+  .hero-journey .hero-journey-number { margin-bottom: 1px; }
+  .hero-journey .hero-journey-arrow { justify-self: center; transform: rotate(90deg); }
+  .hero-journey-link { grid-column: auto; margin-top: 2px; }
+  .service-category-grid { grid-template-columns: 1fr; margin-top: 36px; }
+  .service-category-grid article { padding: 21px 20px; }
+  .service-scenario-groups { margin-top: 40px; }
+  .service-scenario-group { padding: 28px 0; }
+  .service-scenario-list { grid-template-columns: 1fr; margin: 22px 0 0; }
+  .service-scenario-list article { padding: 21px 20px; }
+}

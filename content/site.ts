@@ -12,98 +12,42 @@ export const problemQualification = "ひとつでも当てはまる場合、ま�
 export const problemNext = "資料や論点が十分に揃っていなくても構いません。何が止まり、誰の判断が必要かを一緒に確認します。";
 export const firstContactSteps = ["送信内容を確認する", "30分の相談で論点を整理する", "自分で進めるか、継続支援が必要かを判断する"];
 
-export const consultationOutcomes = [
-  { before: "誰に相談すればいいか分からない", after: "最初に確認すべき論点、相談先、進め方が整理される" },
-  { before: "ベンダー提案を評価できない", after: "技術的な妥当性、リスク、追加確認事項が明確になる" },
-  { before: "新技術を採用すべきか判断できない", after: "採用・見送りの判断材料と、必要な検証方法が得られる" },
-  { before: "技術・業務・組織の論点が絡み合っている", after: "問題を分解し、優先順位と次の一手が決まる" },
-  { before: "PoCを始めるべきか迷っている", after: "PoCの目的、範囲、成功条件、やらない選択肢まで整理される" },
-  { before: "社内に技術判断できる人がいない", after: "一時的な技術責任者の視点で、意思決定を支援してもらえる" },
-];
-
-export const consultationJourney = [
+export const consultationCategories = [
   {
     id: "01",
-    phase: "相談先の探索",
-    before: "相談先が見つからない",
-    after: "専門領域と進め方が見える",
-    examples: [
-      { issue: "誰に相談すればいいか分からない", support: "技術・業務・組織の論点を分け、最初に確認すべきことと相談先を整理します" },
-      { issue: "技術・業務・組織の論点が絡み合っている", support: "判断が必要な論点と、今すぐ進められることを切り分けます" },
+    title: "相談先と進め方が分からない",
+    outcome: "必要な専門性と進め方が分かる",
+    scenarios: [
+      { id: "advisor", title: "何の専門家に相談すればよいか分からない", situation: "技術名も担当領域も定まらず、社内外の誰に何を聞けばよいかが分からない", first: "いま起きていること、決めたいこと、関係者と制約を切り分けます", process: "必要な専門領域と確認順を定め、必要に応じて一次情報の調査や専門家への確認を行います", outcome: "最初に相談すべき相手と、自分たちで進めるための確認順が分かります" },
+      { id: "constraints", title: "技術要件と業務・運用上の制約が衝突している", situation: "技術的には実現できそうでも、現場の運用、コスト、責任分担が障害になっている", first: "技術、業務、運用、組織の論点を分け、どこで判断が止まっているかを整理します", process: "依存関係と制約を調べ、実現案ごとの影響と優先順位を比較します", outcome: "何を先に決め、どの制約を調整すべきかが分かります" },
     ],
   },
   {
     id: "02",
-    phase: "新規テーマの構想評価",
-    before: "新規テーマの見通しが立たない",
-    after: "事業価値と実現条件が見える",
-    examples: [
-      { issue: "新技術を採用すべきか判断できない", support: "採用・見送りの判断材料と、確かめるべき実現条件を整理します" },
+    title: "企画や新規テーマの実現性を判断できない",
+    outcome: "事業価値と実現条件が分かる",
+    scenarios: [
+      { id: "new-technology", title: "新技術を採用すべきか判断できない", situation: "新技術の可能性は聞いているが、自社の課題に効くのか、採用の前提が満たせるのか分からない", first: "目的、利用者、期待する変化、採用判断に必要な条件を整理します", process: "仕様・事例・性能・運用条件を調べ、必要なら小さな検証で不確実性を減らします", outcome: "採用・見送り・追加検証のどれを選ぶかを判断できます" },
+      { id: "product-feasibility", title: "企画中の自社サービスの実現可能性が分からない", situation: "構想はあるが、技術的に作れるのか、運用できるのか、どこから確かめればよいか分からない", first: "提供価値、利用場面、必要な技術、未解決の条件を一枚に整理します", process: "技術構成、データ、性能、運用とコストの条件を調べ、必要なら試作で検証します", outcome: "企画を進める条件と、最初に確かめるべきことが分かります" },
     ],
   },
   {
     id: "03",
-    phase: "外部提案の評価",
-    before: "ベンダー提案を判断できない",
-    after: "妥当性・リスク・確認点が見える",
-    examples: [
-      { issue: "提案内容の技術的な妥当性を評価できない", support: "前提・制約・代替案を確認し、判断に必要な確認点を整理します" },
+    title: "提案や製品を比較・評価できない",
+    outcome: "妥当性・リスク・選定軸が分かる",
+    scenarios: [
+      { id: "vendor-proposal", title: "ベンダーから提案された内容を評価できない", situation: "提案書はあるが、前提や制約が自社に合うのか、後から困る点がないかを判断できない", first: "提案の目的、前提条件、未確認事項と、社内で決めるべきことを整理します", process: "仕様、構成、セキュリティ、運用条件を確認し、代替案との違いを評価します", outcome: "提案を採る・見直す・追加確認する理由を説明できます" },
+      { id: "product-comparison", title: "複数の提案や製品を比較する軸が定まらない", situation: "候補が複数あり、機能、コスト、実現性、運用のどれを優先して選ぶべきか決められない", first: "目的と制約から、比較すべき評価軸と重み付けを整理します", process: "候補ごとの技術条件、導入負荷、リスク、将来の拡張性を調べて比較します", outcome: "関係者が同じ基準で選定し、判断理由を共有できます" },
     ],
   },
   {
     id: "04",
-    phase: "開発・PoCの実行と打開",
-    before: "開発・PoCが前に進まない",
-    after: "ボトルネックと打開策が見える",
-    examples: [
-      { issue: "PoCを始めるべきか迷っている", support: "目的・範囲・成功条件を定め、やらない選択肢も含めて判断します" },
-      { issue: "社内に技術判断できる人がいない", support: "一時的な技術責任者の視点で、次の判断と実行の優先順位を支えます" },
+    title: "PoCの本番化や原因特定が進まない",
+    outcome: "次の判断と打開策が分かる",
+    scenarios: [
+      { id: "poc-production", title: "PoCは動いたが、本番化の判断ができない", situation: "試作は動いたものの、本番で必要な性能、データ、運用、費用の条件が見えていない", first: "PoCで確かめられたことと、本番化までに残る不確実性を整理します", process: "性能、連携、セキュリティ、監視、運用の条件を調べ、必要な追加検証を設計します", outcome: "本番化する条件と、追加で確かめるべきことが分かります" },
+      { id: "root-cause", title: "技術的な問題の原因調査が長期化している", situation: "障害や性能問題が続き、仮説や調査が増える一方で、原因の切り分けが進まない", first: "現象、再現条件、既に試したこと、切り分けるべき仮説を整理します", process: "ログ、構成、依存関係、検証結果を確認し、原因候補を優先順位順に確かめます", outcome: "原因に近づく調査順と、解決・回避に向けた次の手が分かります" },
     ],
-  },
-];
-
-export const serviceConsultationTopics = [
-  "相談先が見つからない",
-  "新規テーマの見通しが立たない",
-  "ベンダー提案を判断できない",
-  "開発・PoCが前に進まない",
-  "技術選定の比較軸が定まらない",
-  "複数領域にまたがり、論点を整理できない",
-  "社内に技術判断を担える人がいない",
-];
-
-export const serviceConsultationStories = [
-  {
-    title: "新規テーマを、始めるべきか見極めたい",
-    situation: "新しい技術を使った構想はあるが、事業として意味があるのか、技術的に成立するのかが見えていない",
-    first: "目的、利用者、期待する変化、分かっていない条件を切り分けます",
-    research: "一次情報、既存の選択肢、性能や運用の条件を調べ、必要なら小さく検証します",
-    output: "事業仮説と実現条件の整理、比較評価表、PoCの目的と成功条件",
-    after: "採用・見送り・追加検証のどれを選ぶかを、自分たちで判断できる状態になります",
-  },
-  {
-    title: "ベンダーの提案を、技術的に見極めたい",
-    situation: "提案書はあるが、前提や制約が自社に合うのか、後から困る点がないかを判断できない",
-    first: "提案の目的、前提条件、未確認事項と、社内で決めるべきことを整理します",
-    research: "仕様、構成、セキュリティや運用条件を確認し、代替案との違いを評価します",
-    output: "提案レビュー、リスク・論点一覧、追加確認事項、比較評価表",
-    after: "提案を採る・見直す・追加確認する理由を、関係者に説明できる状態になります",
-  },
-  {
-    title: "PoCが止まり、本当に確かめるべきことを決めたい",
-    situation: "試作や検証は始めたものの、何を成功とするかが曖昧で、次の投資判断へ進めない",
-    first: "PoCで減らすべき不確実性、対象範囲、成功条件と、やらないことを整理します",
-    research: "実現性、性能、データ、連携や運用の条件を調べ、必要な検証コードや試作を設計します",
-    output: "PoC計画、成功条件、検証結果、次の設計・実装方針",
-    after: "PoCを続けるか、方針を変えるか、実装へ進むかを判断できる状態になります",
-  },
-  {
-    title: "複数領域の課題を、動ける形に戻したい",
-    situation: "技術、業務、組織、複数ベンダーの論点が重なり、誰が何から決めるべきかが止まっている",
-    first: "関係者、制約、決めること、すでに分かっていることを一枚に整理します",
-    research: "必要な技術調査と関係者への確認を行い、依存関係や実行上のボトルネックを確かめます",
-    output: "論点一覧、優先順位、判断材料、実行計画、必要に応じた設計資料",
-    after: "担当者と次の一手が明確になり、社内や外部チームと前へ進める状態になります",
   },
 ];
 
@@ -127,7 +71,7 @@ export const freeConsultationSteps = ["相談", "論点整理", "その場で回
 
 export const consultationMemo = [
   { title: "今、何が起きているか", text: "現象や困っている場面を、一言で構いません", example: "例：提案は受けたが、採用してよいか判断できない" },
-  { title: "どこで判断が止まっているか", text: "決められないこと、進められないことを教えてください", example: "例：PoCを始めるべきか、ベンダー案を採るべきか" },
+  { title: "どこで判断が止まっているか", text: "決められないこと、進められないことを教えてください", example: "例：本番化に進めてよいか、ベンダー案を採るべきか" },
   { title: "試したこと・今ある資料", text: "試したこと、提案書、構成図などがあれば共有してください", example: "例：社内検証の結果、ベンダーからの提案資料" },
 ];
 
@@ -148,10 +92,10 @@ export const serviceDifferences = [
 export const navigation = [
   { label: "Services", href: "/services", items: [
     { label: "Overview", description: "提供サービスの全体像", href: "/services" },
-    { label: "Before / After", description: "困り方別に見る支援", href: "/services#before-after" },
-    { label: "What We Solve", description: "相談できる課題", href: "/services#consultation-issues" },
+    { label: "Consultation Topics", description: "困り方別に見る相談", href: "/services#consultation-topics" },
+    { label: "Consultation Scenarios", description: "具体的な相談例と進め方", href: "/services#consultation-scenarios" },
     { label: "How We Work", description: "支援の進め方", href: "/services#support-process" },
-    { label: "Deliverables", description: "得られる成果物", href: "/services#deliverables" },
+    { label: "Free Consultation", description: "30分無料相談", href: "/services#free-consultation" },
   ] },
   { label: "Insights", href: "/insights", items: [
     { label: "Problem Encyclopedia", description: "特殊IT課題百科", href: "/insights#problem-encyclopedia" },
