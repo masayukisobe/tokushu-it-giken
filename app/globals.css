@@ -71,7 +71,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 
 /* Decision-first home page: explain the work once, then make the next action clear. */
 .hero.hero-decision { min-height: 0; background: var(--paper); }
-.hero-decision .hero-inner.hero-layout { display: block; width: min(980px, calc(100% - 48px)); padding: 88px 0 76px; }
+.hero-decision .hero-inner.hero-layout { display: block; width: min(980px, calc(100% - 48px)); padding: 64px 0 54px; }
 .hero-decision .hero-message { max-width: 800px; }
 .hero-decision .hero-eyebrow { margin-bottom: 15px; }
 .hero-decision h1 { width: auto; max-width: none; font-size: clamp(2.5rem, 3.5vw, 3.15rem); white-space: nowrap; }
@@ -105,7 +105,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .consultation-memo-cta { justify-content: flex-start; margin-top: 30px; }
 
 @media (max-width: 900px) {
-  .hero-decision .hero-inner.hero-layout { width: min(100% - 48px, 800px); padding: 74px 0 66px; }
+  .hero-decision .hero-inner.hero-layout { width: min(100% - 48px, 800px); padding: 58px 0 50px; }
   .hero-decision h1 { white-space: normal; }
   .consultation-memo-heading { grid-template-columns: 1fr; gap: 16px; }
   .consultation-memo-heading > p:last-child { grid-column: 1; grid-row: auto; }
@@ -113,7 +113,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .consultation-memo-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
-  .hero-decision .hero-inner.hero-layout { width: min(100% - 40px, 680px); padding: 60px 0 54px; }
+  .hero-decision .hero-inner.hero-layout { width: min(100% - 40px, 680px); padding: 46px 0 42px; }
   .hero-decision h1 { font-size: clamp(2.25rem, 9.4vw, 2.8rem); line-height: 1.17; }
   .hero-example { margin-top: 36px; }
   .hero-example-content { grid-template-columns: 1fr; gap: 10px; }
@@ -305,12 +305,12 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 }
 
 /* Home is an entrance; scenario pages carry the detailed persuasion. */
-.home-category-links { max-width: 900px; margin-top: 42px; border-top: 1px solid var(--line); }
-.home-category-links > p { margin: 0; padding: 18px 0 10px; font: 700 .69rem ui-monospace, monospace; letter-spacing: .1em; }
-.home-category-links a { display: grid; grid-template-columns: 38px 1fr auto; gap: 14px; align-items: center; min-height: 61px; border-top: 1px solid var(--line); }
+.home-category-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; max-width: 820px; margin-top: 28px; border: 1px solid var(--line); background: var(--line); }
+.home-category-links > p { grid-column: 1 / -1; margin: 0; padding: 12px 15px; background: var(--paper); font: 700 .69rem ui-monospace, monospace; letter-spacing: .1em; }
+.home-category-links a { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 9px 11px; align-content: center; min-height: 76px; padding: 12px 15px; background: var(--paper); }
 .home-category-links a > span { color: var(--accent); font: 700 .7rem ui-monospace, monospace; letter-spacing: .08em; }
-.home-category-links a strong { font-size: .9rem; line-height: 1.55; }
-.home-category-links a small { color: var(--accent); font-size: .72rem; font-weight: 700; white-space: nowrap; }
+.home-category-links a strong { font-size: .88rem; line-height: 1.5; }
+.home-category-links a small { grid-column: 2; color: var(--accent); font-size: .68rem; font-weight: 700; line-height: 1.3; }
 .home-category-links a:hover strong, .home-category-links a:focus-visible strong { color: var(--accent); }
 .home-consultation-summary { padding: 74px 0; background: var(--muted); }
 .home-consultation-summary h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.35rem); line-height: 1.45; letter-spacing: -.04em; }
@@ -363,9 +363,11 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .scenario-contact-cta > .container { align-items: flex-start; flex-direction: column; }
 }
 @media (max-width: 680px) {
-  .home-category-links { margin-top: 36px; }
-  .home-category-links a { grid-template-columns: 30px 1fr; gap: 10px; padding: 14px 0; }
-  .home-category-links a small { grid-column: 2; }
+  .home-category-links { margin-top: 26px; }
+  .home-category-links > p { padding: 11px 12px; }
+  .home-category-links a { min-height: 70px; padding: 11px 12px; }
+  .home-category-links a strong { font-size: .8rem; }
+  .home-category-links a small { display: none; }
   .home-consultation-summary { padding: 62px 0; }
   .scenario-hero { padding: 50px 0 44px; }
   .scenario-hero h1 { font-size: clamp(1.9rem, 7.6vw, 2.2rem); }

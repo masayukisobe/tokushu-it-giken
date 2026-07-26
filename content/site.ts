@@ -153,25 +153,23 @@ export const serviceDifferences = [
 ];
 
 export const navigation = [
-  { label: "Services", href: "/services", items: [
-    { label: "Overview", description: "提供サービスの全体像", href: "/services" },
-    { label: "Consultation Topics", description: "困り方別に見る相談", href: "/services#consultation-topics" },
-    { label: "Consultation Scenarios", description: "具体的な相談例と進め方", href: "/services#consultation-scenarios" },
-    { label: "How We Work", description: "支援の進め方", href: "/services#support-process" },
-    { label: "Free Consultation", description: "30分無料相談", href: "/services#free-consultation" },
+  { label: "サービス", href: "/services", items: [
+    { label: "相談例", description: "困り方から近い相談場面を選ぶ", href: "/services#consultation-topics" },
+    { label: "支援の進め方", description: "相談から判断・実行までの流れ", href: "/services#support-process" },
+    { label: "30分無料相談", description: "まず状況と次の一手を整理する", href: "/services#free-consultation" },
   ] },
-  { label: "Insights", href: "/insights", items: [
-    { label: "Problem Encyclopedia", description: "特殊IT課題百科", href: "/insights#problem-encyclopedia" },
-    { label: "Decision Notes", description: "技術判断ノート", href: "/insights#decision-notes" },
-    { label: "Explainers", description: "技術解説", href: "/insights#explainers" },
-    { label: "Research Reports", description: "調査レポート", href: "/insights#research-reports" },
-    { label: "Technical Blog", description: "技術ブログ", href: "/insights#technical-blog" },
+  { label: "インサイト", href: "/insights", items: [
+    { label: "特殊IT課題百科", description: "課題構造から探す知見", href: "/insights#problem-encyclopedia" },
+    { label: "技術判断ノート", description: "技術を意思決定へつなぐ記録", href: "/insights#decision-notes" },
+    { label: "使える技術解説", description: "業務で使える理解へ変える解説", href: "/insights#explainers" },
+    { label: "調査レポート", description: "採用判断に必要な調査", href: "/insights#research-reports" },
+    { label: "技術ブログ", description: "開発と検証で得た発見", href: "/insights#technical-blog" },
   ] },
-  { label: "Products", href: "/products", items: [
-    { label: "All Products", description: "自社プロダクト一覧", href: "/products" },
+  { label: "プロダクト", href: "/products", items: [
+    { label: "プロダクト・研究開発", description: "自社で開発・提供するもの", href: "/products" },
     { label: "MathLang", description: "数理ソフトウェア基盤", href: "/products#mathlang" },
-    { label: "AI Learning Support", description: "AIによる独学支援", href: "/products#ai-learning" },
-    { label: "10 Page University", description: "短編教材シリーズ", href: "/products#ten-page-university" },
+    { label: "AIによる独学支援", description: "学習支援システム", href: "/products#ai-learning" },
+    { label: "10ページ大学", description: "短編教材シリーズ", href: "/products#ten-page-university" },
   ] },
 ];
 
