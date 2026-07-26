@@ -275,8 +275,9 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .service-category-grid li { border-bottom: 1px solid var(--line); }
 .service-category-grid a { display: flex; align-items: start; justify-content: space-between; gap: 18px; padding: 12px 0; font-size: .84rem; font-weight: 700; line-height: 1.65; }
 .service-category-grid .service-scenario-title { color: var(--ink); }
-.service-category-grid .service-scenario-arrow { display: none; flex: 0 0 auto; color: var(--accent); font-size: 1.05rem; line-height: 1.35; }
+.service-category-grid .service-scenario-arrow { display: none; flex: 0 0 auto; color: var(--accent); font-size: 1.05rem; line-height: 1.35; opacity: 0; transform: translate(-3px, 3px); transition: opacity .18s ease, transform .18s ease; }
 .service-category-grid article:target .service-scenario-arrow, .service-category-grid article.is-selected .service-scenario-arrow { display: block; }
+.service-category-grid article:target a:hover .service-scenario-arrow, .service-category-grid article:target a:focus-visible .service-scenario-arrow, .service-category-grid article.is-selected a:hover .service-scenario-arrow, .service-category-grid article.is-selected a:focus-visible .service-scenario-arrow { opacity: 1; transform: translate(0, 0); }
 .service-category-grid a:hover .service-scenario-title, .service-category-grid a:focus-visible .service-scenario-title { color: var(--accent); }
 .service-category-grid a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -323,6 +324,8 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .home-category-links a small { grid-column: 2; color: var(--accent); font-size: .68rem; font-weight: 700; line-height: 1.3; }
 .home-category-links a:hover, .home-category-links a:focus-visible { background: var(--accent-pale); transform: translateY(-1px); }
 .home-category-links a:hover strong, .home-category-links a:focus-visible strong { color: var(--accent); }
+.home-category-links a b { display: inline-block; opacity: 0; transform: translate(-3px, 3px); transition: opacity .18s ease, transform .18s ease; }
+.home-category-links a:hover b, .home-category-links a:focus-visible b { opacity: 1; transform: translate(0, 0); }
 .home-category-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .home-consultation-summary { padding: 74px 0; background: var(--muted); }
 .home-consultation-summary h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.35rem); line-height: 1.45; letter-spacing: -.04em; }

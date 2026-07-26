@@ -16,7 +16,7 @@ export default function Home() {
 
     <section className="home-categories-section" aria-labelledby="home-categories-title"><div className="container">
       <div className="home-categories-heading"><h2 id="home-categories-title">相談例</h2><p>現在の状況に近いものをお選びください。</p></div>
-      <div className="home-category-links" aria-label="相談例">{consultationCategories.map((category) => <Link key={category.id} href={`/services#category-${category.id}`}><span>{category.id}</span><strong>{category.title}</strong><small>詳しい相談例を見る <b aria-hidden="true">↗</b></small></Link>)}</div>
+      <div className="home-category-links" aria-label="相談例">{consultationCategories.map((category) => <Link key={category.id} href={`/services/#category-${category.id}`}><span>{category.id}</span><strong>{category.title}</strong><small>詳しい相談例を見る <b aria-hidden="true">↗</b></small></Link>)}</div>
     </div></section>
 
     <section className="home-reasons" aria-labelledby="home-reasons-title"><div className="container home-reasons-layout"><div><p className="eyebrow">お任せ頂ける理由</p><h2 id="home-reasons-title">技術の判断と実行を、同じ視点で進めます</h2></div><div><ul>{reasonsToEntrust.map((reason, index) => <li key={reason}><span>{String(index + 1).padStart(2, "0")}</span><p>{reason}</p></li>)}</ul><p className="representative-summary">{representativeSummary}</p></div></div></section>
