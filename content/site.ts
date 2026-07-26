@@ -55,6 +55,65 @@ export const consultationScenes = consultationCategories.flatMap((category) => c
 
 export const findConsultationScene = (id: string) => consultationScenes.find((scene) => scene.id === id);
 
+export type ConsultationSceneDetail = {
+  intro: string;
+  situations: string[];
+  initialActions: string[];
+  initialOutcomes: string[];
+  completionNote?: string;
+  paidSupport: Array<{
+    goal: string;
+    support: string;
+    deliverables: string[];
+  }>;
+};
+
+// The structure used by every consultation-scene page. Add the next scene here
+// when its concrete content is ready; the shared page component handles layout.
+export const consultationSceneDetails: Record<string, ConsultationSceneDetail> = {
+  advisor: {
+    intro: "実現したいことはある。しかし、どの技術分野の問題なのか、何を調べ、誰に相談すべきなのかが分からない。問い合わせても対象外と言われ、別の会社を紹介される。そんな、課題にまだ適切な名前が付いていない段階からご相談いただけます",
+    situations: [
+      "検索に使う技術用語が分からない",
+      "IT会社、メーカー、研究者の誰に聞くべきか分からない",
+      "問い合わせるたびに専門外と言われる",
+      "個別の専門家はいるが、全体を見られる人がいない",
+      "技術・設備・データ・制度が絡み、問題の所在が分からない",
+      "発注内容を定義できず、見積依頼まで進めない",
+    ],
+    initialActions: [
+      "実現・判断したいことを確認",
+      "事実、推測、前提を切り分ける",
+      "関係する技術領域と未確認事項を洗い出す",
+      "最初に誰へ何を確認すべきか整理する",
+    ],
+    initialOutcomes: [
+      "課題を説明するための言葉",
+      "必要な専門領域",
+      "最初に確認すべき論点",
+      "次に相談すべき相手と伝える内容",
+    ],
+    completionNote: "相談先と進め方が分かれば、30分で終了して構いません",
+    paidSupport: [
+      {
+        goal: "課題の正体を明らかにする",
+        support: "資料確認、ヒアリング、論点分解",
+        deliverables: ["課題構造図", "論点・未確認事項一覧"],
+      },
+      {
+        goal: "適切な相談先・発注先を決める",
+        support: "必要な専門性の特定、候補調査、依頼範囲の定義",
+        deliverables: ["専門領域マップ", "相談先候補", "依頼要件"],
+      },
+      {
+        goal: "次の技術判断まで進める",
+        support: "一次情報調査、選択肢比較、必要に応じた予備検証",
+        deliverables: ["技術調査レポート", "比較評価", "実行計画"],
+      },
+    ],
+  },
+};
+
 export const fourCommonUnknowns = [
   { question: "誰に頼めばよいか分からない", answer: "必要な専門性と進め方を特定する" },
   { question: "やる意味や実現性が分からない", answer: "事業価値と実現条件を整理する" },
