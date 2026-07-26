@@ -474,3 +474,52 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .footer-content { flex-direction: column; gap: 30px; padding: 34px 0 28px; }
   .footer-links { justify-content: start; max-width: none; padding-top: 0; }
 }
+
+/* AI is a cross-cutting technical theme, not a fifth service category. */
+.home-ai-section { padding: 70px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.home-ai-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(360px, 1.15fr); gap: clamp(48px, 8vw, 120px); align-items: start; }
+.home-ai-section h2 { max-width: 590px; margin: 0; font-size: clamp(1.7rem, 3vw, 2.45rem); line-height: 1.42; letter-spacing: -.045em; }
+.home-ai-section p:last-child { max-width: 590px; margin: 18px 0 0; color: #40504a; font-size: .94rem; line-height: 1.9; }
+.home-ai-links { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.home-ai-links li { border-bottom: 1px solid var(--line); }
+.home-ai-links a { display: grid; grid-template-columns: 32px 1fr 18px; gap: 10px; align-items: center; padding: 16px 0; }
+.home-ai-links span { color: var(--accent); font: 700 .68rem ui-monospace, monospace; }
+.home-ai-links strong { font-size: .93rem; line-height: 1.65; }
+.home-ai-links b { color: var(--accent); font-size: .9rem; font-weight: 400; }
+.home-ai-links a:hover strong, .home-ai-links a:focus-visible strong { color: var(--accent); }
+.home-insights-link { padding: 58px 0; background: var(--muted); }
+.home-insights-link > .container { display: flex; align-items: end; justify-content: space-between; gap: 36px; }
+.home-insights-link h2 { margin: 0; font-size: clamp(1.45rem, 2.4vw, 2rem); line-height: 1.45; letter-spacing: -.04em; }
+.home-insights-link p:last-child { margin: 10px 0 0; color: #53605a; font-size: .9rem; }
+
+.ai-overview { padding: 50px 0; border-bottom: 1px solid var(--line); background: var(--muted); }
+.ai-overview h2 { max-width: 720px; margin: 0; font-size: clamp(1.35rem, 2.2vw, 1.85rem); line-height: 1.5; letter-spacing: -.035em; }
+.ai-overview p { max-width: 790px; margin: 14px 0 0; color: #40504a; font-size: .94rem; line-height: 1.9; }
+.ai-theme-section { padding: 66px 0; border-bottom: 1px solid var(--line); }
+.ai-theme-heading { display: grid; grid-template-columns: 38px minmax(0, 760px); gap: 16px; }
+.ai-theme-heading > span { padding-top: 8px; color: var(--accent); font: 700 .7rem ui-monospace, monospace; letter-spacing: .08em; }
+.ai-theme-heading h2 { margin: 0; font-size: clamp(1.45rem, 2.4vw, 2rem); line-height: 1.45; letter-spacing: -.04em; }
+.ai-theme-heading p { max-width: 760px; margin: 14px 0 0; color: #40504a; font-size: 1rem; line-height: 1.9; }
+.ai-theme-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 34px 0 0 54px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.ai-theme-details article { min-height: 184px; padding: 20px 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ai-theme-details h3 { margin: 0; color: var(--accent); font: 700 .68rem ui-monospace, monospace; letter-spacing: .08em; line-height: 1.5; }
+.ai-theme-details p { margin: 16px 0 0; color: #40504a; font-size: .87rem; line-height: 1.85; }
+.ai-theme-contact { display: inline-flex; gap: 9px; margin: 20px 0 0 54px; color: var(--accent); font-size: .84rem; font-weight: 700; }
+.ai-theme-contact:hover, .ai-theme-contact:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 900px) {
+  .home-ai-layout { grid-template-columns: 1fr; gap: 34px; }
+  .ai-theme-details { grid-template-columns: 1fr; }
+  .ai-theme-details article { min-height: 0; }
+}
+@media (max-width: 680px) {
+  .home-ai-section { padding: 54px 0; }
+  .home-insights-link { padding: 48px 0; }
+  .home-insights-link > .container { align-items: start; flex-direction: column; gap: 20px; }
+  .ai-overview, .ai-theme-section { padding: 46px 0; }
+  .ai-theme-heading { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; }
+  .ai-theme-heading h2 { font-size: 1.4rem; }
+  .ai-theme-details { margin: 27px 0 0; }
+  .ai-theme-details article { padding: 18px; }
+  .ai-theme-contact { margin-left: 0; }
+}
