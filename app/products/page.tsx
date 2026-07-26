@@ -16,8 +16,8 @@ export default function ProductsPage() {
               <h2>{project.title}</h2>
               <div>
                 <p>{project.description}</p>
-                <small>{project.status}</small>
-                {project.articleUrl && <a className="product-article-link" href={project.articleUrl} target="_blank" rel="noreferrer">紹介記事を読む <span aria-hidden="true">↗</span></a>}
+                {project.status && <small>{project.status}</small>}
+                {project.articleUrl && <a className="product-article-link" href={project.articleUrl} target="_blank" rel="noreferrer">記事を読む <span aria-hidden="true">↗</span></a>}
               </div>
             </article>)}
           </div>
