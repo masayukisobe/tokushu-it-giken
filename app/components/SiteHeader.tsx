@@ -5,12 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { navigation, site } from "../../content/site";
 
+const publicAssetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   function closeNavigation() { setMenuOpen(false); setOpenGroup(null); }
   return <header className="site-header">
-    <Link className="brand brand-logo-link" href="/" aria-label={`${site.name} トップへ`}><Image className="brand-logo" src="/brand-logo.svg" width={220} height={74} alt="" priority /></Link>
+    <Link className="brand brand-logo-link" href="/" aria-label={`${site.name} トップへ`}><Image className="brand-logo" src={`${publicAssetPath}/brand-logo.svg`} width={220} height={74} alt="" priority /></Link>
     <button className="menu-button" type="button" aria-expanded={menuOpen} aria-controls="site-navigation" onClick={() => { setMenuOpen(!menuOpen); setOpenGroup(null); }}>{menuOpen ? "Close" : "Menu"}</button>
     <nav id="site-navigation" className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="主要メニュー">
       {navigation.map((item) => { const isOpen = openGroup === item.label; const panelId = `navigation-${item.label.toLowerCase()}`; return <div className={isOpen ? "nav-group is-open" : "nav-group"} key={item.href}>

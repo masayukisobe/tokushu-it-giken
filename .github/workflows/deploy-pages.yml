@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_SITE_URL: https://masayukisobe.github.io/tokushu-it-giken
+      NEXT_PUBLIC_BASE_PATH: /tokushu-it-giken
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
