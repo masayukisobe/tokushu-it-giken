@@ -68,3 +68,59 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .consultation-memo-section { padding: 76px 0; background: #15231f; }.consultation-memo-heading { display: grid; grid-template-columns: minmax(0, .8fr) minmax(300px, .55fr); column-gap: clamp(48px, 9vw, 132px); align-items: end; }.consultation-memo-heading .eyebrow, .consultation-memo-heading h2 { grid-column: 1; }.consultation-memo-heading h2 { margin: 0; font-size: clamp(2rem, 3.3vw, 2.85rem); line-height: 1.3; letter-spacing: -.045em; }.consultation-memo-heading > p:last-child { grid-column: 2; grid-row: 1 / span 2; margin: 0; color: #c7d0cb; font-size: .92rem; line-height: 1.9; }.consultation-memo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 42px 0 0; padding: 0; list-style: none; background: #40504b; border: 1px solid #40504b; }.consultation-memo-grid li { min-height: 228px; padding: 23px 26px; background: rgba(255,255,255,.035); }.consultation-memo-grid span { color: #8bd3c4; font: 700 .7rem ui-monospace, monospace; letter-spacing: .08em; }.consultation-memo-grid h3 { margin: 34px 0 11px; color: var(--white); font-size: 1.02rem; line-height: 1.55; }.consultation-memo-grid p { margin: 0; color: #d4ddd8; font-size: .84rem; line-height: 1.75; }.consultation-memo-grid small { display: block; margin-top: 16px; color: #9eb0a8; font-size: .72rem; line-height: 1.7; }.consultation-memo-cta { display: flex; align-items: center; justify-content: space-between; gap: 26px; margin-top: 22px; }.consultation-memo-cta p { margin: 0; color: #b8c8c1; font-size: .8rem; font-weight: 700; line-height: 1.7; }.consultation-memo-cta .button { margin: 0; }
 @media (max-width: 900px) { .consultation-memo-heading { grid-template-columns: 1fr; gap: 16px; }.consultation-memo-heading > p:last-child { grid-column: 1; grid-row: auto; }.consultation-memo-grid { grid-template-columns: 1fr; }.consultation-memo-grid li { min-height: 0; }.consultation-memo-cta { align-items: flex-start; flex-direction: column; } }
 @media (max-width: 680px) { .consultation-memo-section { padding: 64px 0; }.consultation-memo-grid { margin-top: 34px; }.consultation-memo-grid li { padding: 21px 20px; }.consultation-memo-grid h3 { margin-top: 24px; }.consultation-memo-cta .button { width: 100%; } }
+
+/* Decision-first home page: explain the work once, then make the next action clear. */
+.hero.hero-decision { min-height: 0; background: var(--paper); }
+.hero-decision .hero-inner.hero-layout { display: block; width: min(980px, calc(100% - 48px)); padding: 88px 0 76px; }
+.hero-decision .hero-message { max-width: 800px; }
+.hero-decision .hero-eyebrow { margin-bottom: 15px; }
+.hero-decision h1 { width: auto; max-width: none; font-size: clamp(2.5rem, 3.5vw, 3.15rem); white-space: nowrap; }
+.hero-decision .hero-copy { max-width: 700px; margin-top: 24px; }
+.hero-decision .hero-actions { margin-top: 28px; }
+.hero-example { max-width: 800px; margin-top: 46px; padding-top: 20px; border-top: 1px solid var(--line); }
+.hero-example-title { margin: 0 0 14px; color: var(--ink); font: 700 .69rem ui-monospace, monospace; letter-spacing: .1em; }
+.hero-example-content { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr); gap: 18px; align-items: center; }
+.hero-example-content > div { min-height: 88px; padding: 15px 18px; border: 1px solid var(--line); }
+.hero-example-kind { margin: 0 0 8px; font: 700 .66rem ui-monospace, monospace; letter-spacing: .08em; }
+.hero-example-before { margin: 0; color: #53605a; font-size: .9rem; font-weight: 700; line-height: 1.65; }
+.hero-example-after { margin: 0; color: var(--accent); font-size: .9rem; font-weight: 700; line-height: 1.65; }
+.hero-example-arrow { color: var(--accent); font-size: 1.25rem; }
+
+.consultation-memo-section { padding: 96px 0; background: var(--muted); color: var(--ink); }
+.consultation-memo-heading { grid-template-columns: minmax(0, .9fr) minmax(300px, .7fr); }
+.consultation-memo-heading > p:last-child { color: #53605a; }
+.consultation-memo-preparation { display: grid; grid-template-columns: minmax(220px, .46fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 82px); align-items: start; margin-top: 48px; }
+.consultation-memo-preparation > div { padding-top: 2px; }
+.consultation-memo-preparation h3, .consultation-memo-closure h3 { margin: 0; font-size: 1.1rem; line-height: 1.55; }
+.consultation-memo-preparation > div > p { margin: 10px 0 0; color: #53605a; font-size: .84rem; line-height: 1.75; }
+.consultation-memo-grid { grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 0; background: var(--line); border-color: var(--line); }
+.consultation-memo-grid li { min-height: 202px; padding: 21px 22px; background: var(--paper); }
+.consultation-memo-grid span { color: var(--ink); }
+.consultation-memo-grid h3 { margin: 28px 0 10px; color: var(--ink); font-size: .95rem; }
+.consultation-memo-grid p { color: #53605a; }
+.consultation-memo-grid small { color: #68746e; }
+.consultation-memo-closure { display: grid; grid-template-columns: minmax(0, .8fr) minmax(280px, .65fr); gap: clamp(32px, 8vw, 112px); align-items: end; margin-top: 28px; padding-top: 27px; border-top: 1px solid var(--line); }
+.consultation-memo-closure .eyebrow { margin-bottom: 8px; color: var(--ink); }
+.consultation-memo-closure > p { margin: 0; color: #53605a; font-size: .88rem; line-height: 1.85; }
+.consultation-memo-cta { justify-content: flex-start; margin-top: 30px; }
+
+@media (max-width: 900px) {
+  .hero-decision .hero-inner.hero-layout { width: min(100% - 48px, 800px); padding: 74px 0 66px; }
+  .hero-decision h1 { white-space: normal; }
+  .consultation-memo-heading { grid-template-columns: 1fr; gap: 16px; }
+  .consultation-memo-heading > p:last-child { grid-column: 1; grid-row: auto; }
+  .consultation-memo-preparation, .consultation-memo-closure { grid-template-columns: 1fr; gap: 18px; }
+  .consultation-memo-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .hero-decision .hero-inner.hero-layout { width: min(100% - 40px, 680px); padding: 60px 0 54px; }
+  .hero-decision h1 { font-size: clamp(2.25rem, 9.4vw, 2.8rem); line-height: 1.17; }
+  .hero-example { margin-top: 36px; }
+  .hero-example-content { grid-template-columns: 1fr; gap: 10px; }
+  .hero-example-content > div { min-height: 0; }
+  .hero-example-arrow { justify-self: center; transform: rotate(90deg); }
+  .consultation-memo-section { padding: 70px 0; }
+  .consultation-memo-preparation { margin-top: 36px; }
+  .consultation-memo-grid li { padding: 21px 20px; }
+  .consultation-memo-closure { margin-top: 22px; padding-top: 22px; }
+}
