@@ -17,9 +17,9 @@ export function SiteHeader() {
     <nav id="site-navigation" className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="主要メニュー">
       {navigation.map((item) => { const isOpen = openGroup === item.label; const panelId = `navigation-${item.label.toLowerCase()}`; return <div className={isOpen ? "nav-group is-open" : "nav-group"} key={item.href}>
         <button className="nav-trigger" type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenGroup(isOpen ? null : item.label)}>{item.label}<span className="nav-caret" aria-hidden="true" /></button>
-        <div className="nav-panel" id={panelId}>{item.items.map((subItem) => <a key={subItem.href} href={subItem.href} onClick={closeNavigation}><strong>{subItem.label}</strong><small>{subItem.description}</small></a>)}</div>
+        <div className="nav-panel" id={panelId}>{item.items.map((subItem) => <Link key={subItem.href} href={subItem.href} onClick={closeNavigation}><strong>{subItem.label}</strong><small>{subItem.description}</small></Link>)}</div>
       </div>; })}
-      <a className="nav-contact" href="/contact" onClick={closeNavigation}>Contact</a>
+      <Link className="nav-contact" href="/contact" onClick={closeNavigation}>Contact</Link>
     </nav>
   </header>;
 }
