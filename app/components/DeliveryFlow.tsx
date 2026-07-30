@@ -1,9 +1,9 @@
 type DeliveryPhase = {
   id: string;
-  shortTitle: string;
+  ability: string;
   title: string;
-  steps: readonly string[];
-  output: string;
+  description: string;
+  outputs: readonly string[];
 };
 
 export function DeliveryFlow({
@@ -13,11 +13,16 @@ export function DeliveryFlow({
   phases: readonly DeliveryPhase[];
   compact?: boolean;
 }) {
-  return <ol className={compact ? "delivery-flow delivery-flow-compact" : "delivery-flow"} aria-label="技術課題を見立て、計画と実行へつなぐ流れ">
+  return <ol className={compact ? "delivery-flow delivery-flow-compact" : "delivery-flow"} aria-label="技術を見立て、判断材料をつくり、実行可能な形へ設計し、関係者と実行まで進める流れ">
     {phases.map((phase) => <li key={phase.id}>
-      <header><span>{phase.id}</span><h3>{compact ? phase.shortTitle : phase.title}</h3></header>
-      {!compact && <ul>{phase.steps.map((step) => <li key={step}>{step}</li>)}</ul>}
-      <p className="delivery-phase-output"><span>得られるもの</span>{phase.output}</p>
+      <header><span>{phase.id}</span><h3>{compact ? phase.ability : phase.title}</h3></header>
+      {!compact && <p className="delivery-phase-description">{phase.description}</p>}
+      <div className="delivery-phase-output">
+        <span>{compact ? "対応する支援" : "成果物"}</span>
+        {compact
+          ? phase.title
+          : <ul>{phase.outputs.map((output) => <li key={output}>{output}</li>)}</ul>}
+      </div>
     </li>)}
   </ol>;
 }

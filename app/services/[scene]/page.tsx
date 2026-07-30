@@ -4,8 +4,10 @@ import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import {
   consultationSceneDetails,
+  consultationSceneServiceStages,
   consultationScenes,
   findConsultationScene,
+  projectDeliveryPhases,
 } from "../../../content/site";
 
 export const dynamicParams = false;
@@ -31,6 +33,9 @@ export default async function ConsultationScenePage({
   const initialOutcomes = detail?.initialOutcomes ?? [scene.initialOutcome];
   const paidSupport = detail?.paidSupport ?? scene.paidSupport;
   const contactHref = `/contact?issue=${encodeURIComponent(scene.title)}`;
+  const connectedServiceStages = (consultationSceneServiceStages[scene.id] ?? [])
+    .map((stageId) => projectDeliveryPhases.find((stage) => stage.id === stageId))
+    .filter((stage): stage is (typeof projectDeliveryPhases)[number] => Boolean(stage));
 
   return <>
     <SiteHeader />
@@ -41,6 +46,10 @@ export default async function ConsultationScenePage({
           <p className="scenario-category">{scene.categoryTitle}</p>
           <h1 id="scenario-title">{scene.title}</h1>
           <p className="scenario-lead">{intro}</p>
+          <div className="scenario-service-path" aria-label="この相談からつながる支援">
+            <span>この相談からつながる支援</span>
+            <ol>{connectedServiceStages.map((stage) => <li key={stage.id}><b>{stage.id}</b>{stage.title}</li>)}</ol>
+          </div>
           <div className="scenario-hero-actions">
             <Link className="button button-primary" href={contactHref}>
               この状況について30分相談する <span aria-hidden="true">→</span>
@@ -92,8 +101,8 @@ export default async function ConsultationScenePage({
         <div className="container">
           <div className="scenario-section-heading scenario-section-heading-wide">
             <p className="eyebrow">04 / 継続支援が必要な場合</p>
-            <h2 id="paid-support-title">技術判断を、計画と実行へつなげます</h2>
-            <p className="scenario-support-intro">目的・範囲・成功条件・役割・判断の節目を定め、必要に応じて設計・実装と関係者間の技術調整まで進めます</p>
+            <h2 id="paid-support-title">診断・意思決定から、実行設計と技術検証へ</h2>
+            <p className="scenario-support-intro">必要な場合は、対象範囲、技術方針、検証計画、役割分担、受入・完了条件を定め、調査、予備検証、設計、プロトタイプ、技術レビューまで進めます</p>
           </div>
           <div className="scenario-support-list">
             {paidSupport.map((support, index) => <article key={support.goal}>

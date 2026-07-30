@@ -2,7 +2,7 @@ export const site = {
   name: "特殊IT技研",
   englishName: "TOKUSHU IT GIKEN",
   description:
-    "どこに頼めばよいか分からない技術課題に、見立てと次の一手を。一次情報の調査と検証で判断材料を整え、実行計画から設計・実装・技術推進まで支援します。",
+    "相談先も進め方も定まらない技術課題を診断し、意思決定から実行設計、必要な技術検証まで支援します。",
   email: undefined,
   location: undefined,
 };
@@ -14,7 +14,7 @@ export const firstContactSteps = [
   "送信内容を確認し、30分相談をご案内する",
   "その場で回答できることを回答する",
   "未確認事項と次の判断を明らかにする",
-  "必要な場合のみ、支援範囲と実行計画をご提案する",
+  "必要な場合のみ、診断・評価・実行設計・技術検証をご提案する",
 ];
 
 export const consultationCategories = [
@@ -63,20 +63,20 @@ export const reasonsToEntrust = [
     examples: "対応例：RDF／OWL、ドローンSDK、Web標準、ブロックチェーン、ロボティクス、AI・RAG",
   },
   {
-    title: "技術を、現実に動く条件と計画へ落とす",
-    text: "事業要件、既存システム、データ、人員、予算、運用条件を確認し、目的・範囲・成功条件・役割・判断の節目を定めます。",
+    title: "判断材料を、実行可能な形へ設計する",
+    text: "事業要件、既存システム、データ、人員、予算、運用条件を確認し、対象範囲、技術方針、検証計画、役割分担、受入・完了条件を定めます。",
   },
   {
     title: "特定製品を売るための結論を出さない",
     text: "特定製品や開発受注を前提とせず、採用しない選択も含めて判断します。30分で方向が定まれば、その場で完了して構いません。",
   },
   {
-    title: "調査する人が、計画・設計・実装・技術推進まで担う",
-    text: "調査結果を報告して終わらせず、実行計画、関係者との技術調整、設計・実装、完了条件と引き継ぎまで同じ視点で扱います。",
+    title: "必要な技術検証で、判断を成果へつなげる",
+    text: "調査、予備検証、設計、プロトタイプ、技術レビューを行い、社内チームやベンダーと実行まで進めます。",
   },
 ];
 
-export const representativeSummary = "代表者は情報工学系大学院修了後、ITインフラ・クラウド・Web・AI・ロボティクスの開発と技術コンサルティングを経験。約10年間、調査、計画、設計・実装、顧客・外部チームとの技術調整を一貫して担っています。";
+export const representativeSummary = "代表者は情報工学系大学院修了後、ITインフラ・クラウド・Web・AI・ロボティクスの開発と技術コンサルティングを経験。約10年間、技術調査、意思決定支援、設計・実装、技術レビューに携わっています。";
 
 export const consultationScenes = consultationCategories.flatMap((category) => category.scenarios.map((scene) => ({ ...scene, categoryId: category.id, categoryTitle: category.title })));
 
@@ -442,33 +442,46 @@ export const fourCommonUnknowns = [
 export const projectDeliveryPhases = [
   {
     id: "01",
-    shortTitle: "見立て",
-    title: "相談・見立て",
-    steps: ["30分無料相談", "目的・制約・未確認事項を把握"],
-    output: "課題構造・未確認事項",
+    ability: "技術を見立てる",
+    title: "技術課題診断",
+    description: "課題の構造、専門領域、未確認事項、リスクを明らかにする",
+    outputs: ["課題構造図", "論点一覧", "追加確認事項"],
   },
   {
     id: "02",
-    shortTitle: "判断",
-    title: "調査・判断",
-    steps: ["一次情報を調査し、必要な検証を実施", "選択肢と技術判断を提示"],
-    output: "比較評価・判断条件",
+    ability: "判断材料をつくる",
+    title: "技術意思決定支援",
+    description: "新技術、製品、ベンダー提案、アーキテクチャを評価する",
+    outputs: ["比較評価", "判断基準", "推奨案", "技術リスク"],
   },
   {
     id: "03",
-    shortTitle: "計画",
-    title: "実行計画",
-    steps: ["目的・範囲・成功条件を決定", "体制・役割・工程・リスクを計画"],
-    output: "実行計画・責任分界",
+    ability: "実行可能な形へ設計する",
+    title: "実行設計",
+    description: "技術判断を実行可能な計画へ落とす",
+    outputs: ["対象範囲", "技術方針", "検証計画", "役割分担", "受入・完了条件"],
   },
   {
     id: "04",
-    shortTitle: "推進",
-    title: "推進・完了",
-    steps: ["設計・実装・技術調整を推進", "完了条件を確認し、成果を引き継ぐ"],
-    output: "実装・完了条件・引き継ぎ",
+    ability: "関係者と実行まで進める",
+    title: "技術難所の突破・推進",
+    description: "調査、予備検証、設計、プロトタイプ、技術レビューを行い、社内チームやベンダーと前進させる",
+    outputs: ["検証結果", "設計資料", "試作物", "技術判断記録"],
   },
 ] as const;
+
+export type ServiceStageId = "01" | "02" | "03" | "04";
+
+export const consultationSceneServiceStages: Record<string, readonly ServiceStageId[]> = {
+  advisor: ["01", "03"],
+  "cross-domain": ["01", "03"],
+  "new-technology": ["02", "03", "04"],
+  "product-feasibility": ["02", "03", "04"],
+  "vendor-proposal": ["02", "03"],
+  "product-comparison": ["02", "03"],
+  "development-stalled": ["01", "03", "04"],
+  "technical-roadblock": ["01", "04"],
+};
 
 export const freeConsultationSteps = ["相談", "論点整理", "その場で回答できることを回答", "お客様自身で進める、または継続支援"];
 
@@ -495,19 +508,13 @@ export const serviceDifferences = [
 export const navigation = [
   { label: "サービス", href: "/services", items: [
     { label: "相談例", description: "困り方から近い相談場面を選ぶ", href: "/services#consultation-topics" },
-    { label: "支援の進め方", description: "相談から判断・実行までの流れ", href: "/services#support-process" },
+    { label: "四つの支援", description: "診断・意思決定・実行設計・技術検証", href: "/services#support-process" },
     { label: "30分無料相談", description: "まず状況と次の一手を整理する", href: "/services#free-consultation" },
   ] },
   { label: "インサイト", href: "/insights", items: [
     { label: "課題から探す", description: "特殊IT課題百科から困りごとを整理する", href: "/insights/issues" },
     { label: "技術から探す", description: "使える技術解説から採用条件を考える", href: "/insights/technologies" },
     { label: "すべての記事", description: "判断に役立つインサイトを一覧で見る", href: "/insights" },
-  ] },
-  { label: "プロダクト", href: "/products", items: [
-    { label: "プロダクト一覧", description: "特殊IT技研の独自制作物", href: "/products" },
-    { label: "10ページ大学", description: "短編教材シリーズ", href: "/products#ten-page-university" },
-    { label: "KnowState", description: "AIが理解度合いを推定する教育基盤", href: "/products#ai-learning" },
-    { label: "MathLang", description: "数理ソフトウェア基盤", href: "/products#mathlang" },
   ] },
 ];
 
@@ -663,21 +670,23 @@ export type ResearchProject = {
   articleUrl?: string;
 };
 
+export const tenPageUniversityArticleUrl = "https://note.com/isobe324649/n/nf429404b8a2b";
+
 export const researchProjects: ResearchProject[] = [
-  { id: "ten-page-university", level: "知の導入", title: "10ページ大学", description: "聞いたことのある言葉を、仕組みまで説明できる教養へ変える短編教材シリーズ", articleUrl: "https://note.com/isobe324649/n/nf429404b8a2b" },
+  { id: "ten-page-university", level: "知の導入", title: "10ページ大学", description: "聞いたことのある言葉を、仕組みまで説明できる教養へ変える短編教材シリーズ", articleUrl: tenPageUniversityArticleUrl },
   { id: "ai-learning", level: "知の深耕", title: "KnowState", description: "AIがユーザーの理解度合いを推定し、学びをアシストする教育基盤", status: "開発中" },
   { id: "mathlang", level: "知の実践", title: "MathLang", description: "数学的な構造やモデルを、AIにより再現可能な計算へ接続する技術基盤", status: "開発中" },
 ];
 
 export const profile = {
-  summary: "技術と社会実装の接続を中心テーマに、顧客ヒアリング、一次情報調査、技術判断、実行計画、設計・実装、関係者間の技術調整までを一貫して担います。",
+  summary: "相談先も進め方も定まらない技術課題を、技術調査と検証にもとづいて診断し、意思決定から実行設計まで支援します。",
   roles: [
-    { title: "技術責任者として判断する", text: "技術的な成立条件、選択肢、リスクを確認し、採用・見送り・追加検証の判断材料をつくります。" },
-    { title: "実行計画を設計する", text: "目的・範囲・成功条件、役割、マイルストーン、判断の節目を定めます。" },
-    { title: "関係者間の技術判断を進める", text: "社内チーム、専門家、外部ベンダーの責任分界を明らかにし、必要な技術協議を進めます。" },
-    { title: "設計・実装・引き継ぎまで担う", text: "調査結果を報告して終わらせず、必要な設計・実装、完了条件の確認と引き継ぎへつなげます。" },
+    { title: "技術を見立てる", text: "課題の構造、関係する専門領域、未確認事項、技術リスクを明らかにします。" },
+    { title: "判断材料をつくる", text: "新技術、製品、ベンダー提案、アーキテクチャを比較し、判断基準と推奨案を示します。" },
+    { title: "実行可能な形へ設計する", text: "対象範囲、技術方針、検証計画、役割分担、受入・完了条件を定めます。" },
+    { title: "関係者と実行まで進める", text: "必要な調査、予備検証、設計、プロトタイプ、技術レビューを社内チームやベンダーと進めます。" },
   ],
-  history: ["情報工学系大学院修了。AI、ソフトウェア、ロボティクスなどの開発経験。", "約10年間、顧客ヒアリング、技術調査、計画、設計・実装、説明、社内外との技術調整を担当。", "複数領域の技術を短期間で理解し、実務上の判断と実行へ適用。", "現在はAI時代の技術基盤、数理ソフトウェア、学習支援などを研究・開発。"],
+  history: ["情報工学系大学院修了。AI、ソフトウェア、ロボティクスなどの開発経験。", "約10年間、顧客ヒアリング、技術調査、意思決定支援、設計・実装、技術レビューを担当。", "複数領域の技術を短期間で理解し、実務上の判断と必要な検証へ適用。", "現在はAI時代の技術基盤、数理ソフトウェア、学習支援などを研究・開発。"],
 };
 
 export const faqItems = [
