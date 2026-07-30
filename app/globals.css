@@ -695,3 +695,113 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .insight-article-reading h2 { font-size: 1.15rem; }
   .insight-article-reading h2 + div > p { font-size: .95rem; }
 }
+
+/* One diagram carries the full service story. The line moves from the logo's
+   warning yellow to its calm blue-green as uncertainty becomes an executable plan. */
+.delivery-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 42px 0 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--line);
+  list-style: none;
+}
+.delivery-flow::before {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  left: -1px;
+  z-index: 2;
+  height: 4px;
+  background: linear-gradient(90deg, #d69d08 0%, #b49c2f 30%, #57916b 66%, #00877a 100%);
+  content: "";
+}
+.delivery-flow > li {
+  --phase-color: #d69d08;
+  --phase-text: #795800;
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 236px;
+  flex-direction: column;
+  padding: 25px 22px 21px;
+  background: var(--paper);
+}
+.delivery-flow > li:nth-child(2) { --phase-color: #a69b3f; --phase-text: #666019; }
+.delivery-flow > li:nth-child(3) { --phase-color: #4d9271; --phase-text: #286e55; }
+.delivery-flow > li:nth-child(4) { --phase-color: #00877a; --phase-text: #006e64; }
+.delivery-flow > li:not(:last-child)::after {
+  position: absolute;
+  top: 25px;
+  right: 13px;
+  color: var(--phase-text);
+  content: "→";
+  font-size: .92rem;
+}
+.delivery-flow header { display: flex; align-items: center; gap: 10px; padding-right: 24px; }
+.delivery-flow header > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--phase-color);
+  border-radius: 50%;
+  color: var(--phase-text);
+  font: 700 .65rem ui-monospace, monospace;
+  letter-spacing: .04em;
+}
+.delivery-flow h3 { margin: 0; font-size: 1rem; line-height: 1.5; letter-spacing: -.02em; }
+.delivery-flow > li > ul { margin: 24px 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.delivery-flow > li > ul li { padding: 10px 0; border-bottom: 1px solid var(--line); color: #40504a; font-size: .8rem; font-weight: 600; line-height: 1.65; }
+.delivery-phase-summary { margin: 19px 0 0; color: #40504a; font-size: .84rem; font-weight: 700; line-height: 1.65; }
+.delivery-phase-output {
+  margin: auto 0 0;
+  padding: 12px 0 0 11px;
+  border-left: 3px solid var(--phase-color);
+  color: var(--ink);
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.delivery-phase-output span {
+  display: block;
+  margin-bottom: 3px;
+  color: #68736e;
+  font: 700 .61rem ui-monospace, monospace;
+  letter-spacing: .07em;
+}
+.hero-decision .delivery-flow-compact { max-width: 920px; margin-top: 34px; }
+.delivery-flow-compact > li { min-height: 112px; padding: 18px 18px 15px; }
+.delivery-flow-compact .delivery-phase-output { padding-top: 9px; font-size: .73rem; }
+
+@media (max-width: 900px) {
+  .delivery-flow:not(.delivery-flow-compact) { grid-template-columns: 1fr; }
+  .delivery-flow:not(.delivery-flow-compact)::before {
+    top: -1px;
+    right: auto;
+    bottom: -1px;
+    left: -1px;
+    width: 4px;
+    height: auto;
+    background: linear-gradient(180deg, #d69d08 0%, #b49c2f 30%, #57916b 66%, #00877a 100%);
+  }
+  .delivery-flow:not(.delivery-flow-compact) > li { min-height: 0; padding-left: 26px; }
+  .delivery-flow:not(.delivery-flow-compact) > li:not(:last-child)::after { top: auto; right: 18px; bottom: 12px; content: "↓"; }
+  .delivery-flow-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .delivery-flow-compact > li:nth-child(2)::after { display: none; }
+}
+
+@media (max-width: 680px) {
+  .hero-decision .delivery-flow-compact { margin-top: 28px; }
+  .delivery-flow-compact > li { min-height: 104px; padding: 15px 13px 13px; }
+  .delivery-flow-compact > li::after { display: none; }
+  .delivery-flow-compact header { gap: 8px; padding-right: 0; }
+  .delivery-flow-compact header > span { width: 24px; height: 24px; font-size: .59rem; }
+  .delivery-flow-compact h3 { font-size: .9rem; }
+  .delivery-flow-compact .delivery-phase-output { padding: 8px 0 0 8px; font-size: .68rem; }
+  .delivery-flow-compact .delivery-phase-output span { display: none; }
+}

@@ -3,15 +3,18 @@ import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import {
   consultationCategories,
+  projectDeliveryPhases,
   reasonsToEntrust,
   representativeSummary,
 } from "../content/site";
 import { aiConsultationThemes } from "../content/ai";
+import { DeliveryFlow } from "./components/DeliveryFlow";
 
 export default function Home() {
   return <><SiteHeader /><main>
     <section className="hero hero-decision" aria-labelledby="hero-title"><div className="hero-grid" aria-hidden="true" /><div className="hero-inner hero-layout">
-      <div className="hero-message"><h1 id="hero-title">どこに頼めばいいか分からない。<br /><em>そんな技術課題に、<br />見立てと、次の一手を。</em></h1><p className="hero-copy">前例も、頼れる専門家も見つからない技術課題を、事業要件と現場の制約をふまえて解きほぐします。一次情報の調査と検証で判断材料を整え、目的・範囲・成功条件・役割を実行計画へ落とし込みます。必要に応じて、設計・実装とプロジェクトの技術推進まで支援します。</p><div className="hero-actions"><Link className="button button-primary" href="/contact">30分無料で相談する <span aria-hidden="true">→</span></Link></div></div>
+      <div className="hero-message"><h1 id="hero-title">どこに頼めばいいか分からない。<br /><em>そんな技術課題に、<br />見立てと、次の一手を。</em></h1><p className="hero-copy">前例も、頼れる専門家も見つからない技術課題を、事業要件と現場の制約をふまえて解きほぐします。一次情報の調査と検証から、実行計画、設計・実装、プロジェクトの技術推進まで一貫して支援します。</p><div className="hero-actions"><Link className="button button-primary" href="/contact">30分無料で相談する <span aria-hidden="true">→</span></Link></div></div>
+      <DeliveryFlow phases={projectDeliveryPhases} compact />
     </div></section>
 
     <section className="home-categories-section" aria-labelledby="home-categories-title"><div className="container">

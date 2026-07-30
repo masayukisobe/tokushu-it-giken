@@ -2,8 +2,9 @@ import { SectionHeading } from "../components/SectionHeading";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import Link from "next/link";
-import { consultationCategories, serviceConsultationProcess } from "../../content/site";
+import { consultationCategories, projectDeliveryPhases } from "../../content/site";
 import { ConsultationCategories } from "./ConsultationCategories";
+import { DeliveryFlow } from "../components/DeliveryFlow";
 
 export default function ServicesPage() {
   return <><SiteHeader /><main>
@@ -14,7 +15,7 @@ export default function ServicesPage() {
 
     <section id="support-process" className="section section-muted" aria-labelledby="support-process-title"><div className="container">
       <SectionHeading title="支援の進め方" text="技術的な判断を、目的・範囲・役割・工程が定まった実行計画へつなげ、必要に応じて設計・実装と技術推進まで担います。" />
-      <ol className="service-process-list">{serviceConsultationProcess.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>)}</ol>
+      <DeliveryFlow phases={projectDeliveryPhases} />
       <div className="service-process-branches" aria-label="相談後の進み方"><p>相談後の進み方</p><div><span>30分で方向が定まり完了</span><span>判断材料と実行計画を受け取り、社内で進める</span><span>技術推進まで継続して依頼する</span></div></div>
     </div></section>
 

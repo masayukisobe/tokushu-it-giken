@@ -439,16 +439,36 @@ export const fourCommonUnknowns = [
   { question: "なぜ前に進まないか分からない", answer: "ボトルネックと打開策を明らかにする" },
 ];
 
-export const serviceConsultationProcess = [
-  "30分無料相談",
-  "目的・制約・未確認事項を把握",
-  "一次情報を調査し、必要な検証を実施",
-  "選択肢と技術判断を提示",
-  "目的・範囲・成功条件を決定",
-  "体制・役割・工程・リスクを計画",
-  "必要に応じて設計・実装・技術調整を推進",
-  "完了条件を確認し、成果を引き継ぐ",
-];
+export const projectDeliveryPhases = [
+  {
+    id: "01",
+    shortTitle: "見立て",
+    title: "相談・見立て",
+    steps: ["30分無料相談", "目的・制約・未確認事項を把握"],
+    output: "課題構造・未確認事項",
+  },
+  {
+    id: "02",
+    shortTitle: "判断",
+    title: "調査・判断",
+    steps: ["一次情報を調査し、必要な検証を実施", "選択肢と技術判断を提示"],
+    output: "比較評価・判断条件",
+  },
+  {
+    id: "03",
+    shortTitle: "計画",
+    title: "実行計画",
+    steps: ["目的・範囲・成功条件を決定", "体制・役割・工程・リスクを計画"],
+    output: "実行計画・責任分界",
+  },
+  {
+    id: "04",
+    shortTitle: "推進",
+    title: "推進・完了",
+    steps: ["設計・実装・技術調整を推進", "完了条件を確認し、成果を引き継ぐ"],
+    output: "実装・完了条件・引き継ぎ",
+  },
+] as const;
 
 export const freeConsultationSteps = ["相談", "論点整理", "その場で回答できることを回答", "お客様自身で進める、または継続支援"];
 
