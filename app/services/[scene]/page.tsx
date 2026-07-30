@@ -91,8 +91,9 @@ export default async function ConsultationScenePage({
       <section className="scenario-section" aria-labelledby="paid-support-title">
         <div className="container">
           <div className="scenario-section-heading scenario-section-heading-wide">
-            <p className="eyebrow">04 / 追加支援が必要な場合</p>
-            <h2 id="paid-support-title">有償支援へ進む場合</h2>
+            <p className="eyebrow">04 / 継続支援が必要な場合</p>
+            <h2 id="paid-support-title">技術判断を、計画と実行へつなげます</h2>
+            <p className="scenario-support-intro">目的・範囲・成功条件・役割・判断の節目を定め、必要に応じて設計・実装と関係者間の技術調整まで進めます</p>
           </div>
           <div className="scenario-support-list">
             {paidSupport.map((support, index) => <article key={support.goal}>

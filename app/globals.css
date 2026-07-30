@@ -321,6 +321,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .home-category-links a { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 9px 11px; align-content: center; min-height: 76px; padding: 12px 15px; background: var(--white); transition: background .18s ease, transform .18s ease; }
 .home-category-links a > span { color: var(--accent); font: 700 .7rem ui-monospace, monospace; letter-spacing: .08em; }
 .home-category-links a strong { font-size: .88rem; line-height: 1.5; }
+.home-category-links a > p { grid-column: 2; margin: -2px 0 0; color: #53605a; font-size: .75rem; font-weight: 600; line-height: 1.55; }
 .home-category-links a small { grid-column: 2; color: var(--accent); font-size: .68rem; font-weight: 700; line-height: 1.3; }
 .home-category-links a:hover, .home-category-links a:focus-visible { background: var(--accent-pale); transform: translateY(-1px); }
 .home-category-links a:hover strong, .home-category-links a:focus-visible strong { color: var(--accent); }
@@ -344,6 +345,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .scenario-section-heading .eyebrow { margin-bottom: 10px; }
 .scenario-section-heading h2 { margin: 0; font-size: clamp(1.5rem, 2vw, 1.85rem); line-height: 1.48; letter-spacing: -.035em; }
 .scenario-section-heading-wide { max-width: 760px; }
+.scenario-support-intro { max-width: 720px; margin: 14px 0 0; color: #53605a; font-size: .94rem; line-height: 1.85; }
 .scenario-issue-list, .scenario-action-list { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
 .scenario-issue-list li, .scenario-action-list li { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px 0; border-bottom: 1px solid var(--line); font-size: 1rem; font-weight: 600; line-height: 1.8; }
 .scenario-issue-list span, .scenario-action-list span, .scenario-support-goal > span { color: var(--accent); font: 700 .7rem ui-monospace, monospace; letter-spacing: .08em; padding-top: 6px; }
@@ -541,7 +543,7 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .home-categories-heading h2 { margin: 0; font-size: clamp(1.3rem, 2vw, 1.55rem); line-height: 1.45; letter-spacing: -.03em; }
 .home-categories-heading p { margin: 8px 0 0; color: #53605a; font-size: clamp(.96rem, 1.25vw, 1.05rem); font-weight: 600; line-height: 1.75; }
 .home-categories-section .home-category-links { max-width: none; margin-top: 28px; }
-.home-categories-section .home-category-links a { min-height: 100px; padding: 17px 18px; }
+.home-categories-section .home-category-links a { min-height: 118px; padding: 17px 18px; }
 .home-categories-section .home-category-links small b { margin-left: 4px; font-size: .9rem; font-weight: 400; }
 
 .home-reasons { padding: 72px 0; background: var(--muted); border-bottom: 1px solid var(--line); }
@@ -576,14 +578,26 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
 .contact-flow-section .contact-steps { max-width: 760px; margin-top: 26px; border-color: var(--line); }
 .contact-flow-section .contact-steps li { border-color: var(--line); font-size: .9rem; }
 
+.about-roles-section { padding: 72px 0; border-bottom: 1px solid var(--line); background: var(--muted); }
+.about-roles-layout { display: grid; grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr); gap: clamp(48px, 9vw, 130px); align-items: start; }
+.about-roles-layout h2 { max-width: 470px; margin: 0; font-size: clamp(1.65rem, 2.8vw, 2.3rem); line-height: 1.45; letter-spacing: -.045em; }
+.about-roles-layout ol { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.about-roles-layout li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+.about-roles-layout li > span { padding-top: 5px; color: var(--accent); font: 700 .68rem ui-monospace, monospace; letter-spacing: .08em; }
+.about-roles-layout h3 { margin: 0; font-size: 1rem; line-height: 1.65; }
+.about-roles-layout li p { margin: 7px 0 0; color: #40504a; font-size: .9rem; line-height: 1.8; }
+.about-profile-section { background: var(--paper); }
+
 @media (max-width: 900px) {
   .home-reasons-layout { grid-template-columns: 1fr; gap: 32px; }
   .home-consultation-layout { align-items: flex-start; flex-direction: column; }
+  .about-roles-layout { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 680px) {
-  .home-categories-section, .home-reasons, .contact-form-section { padding: 54px 0; }
+  .home-categories-section, .home-reasons, .contact-form-section, .about-roles-section { padding: 54px 0; }
   .home-categories-section .home-category-links { margin-top: 24px; }
-  .home-categories-section .home-category-links a { min-height: 84px; padding: 13px 12px; }
+  .home-categories-section .home-category-links a { min-height: 106px; padding: 13px 12px; }
+  .home-category-links a > p { font-size: .72rem; }
   .home-categories-section .home-category-links small { display: block; }
   .home-categories-section .home-category-links small b { display: none; }
   .home-reasons h2 { font-size: 1.65rem; }
@@ -596,6 +610,8 @@ a { color: inherit; text-decoration: none; } button, input, textarea, select { f
   .contact-hero { padding: 52px 0 46px; }
   .contact-hero h1 { font-size: clamp(2rem, 8.5vw, 2.35rem); }
   .contact-flow-section { padding: 52px 0 56px; }
+  .about-roles-layout h2 { font-size: 1.65rem; }
+  .about-roles-layout li { grid-template-columns: 30px 1fr; gap: 9px; }
 }
 
 /* Insights are a route from a current question to a concrete consultation. */

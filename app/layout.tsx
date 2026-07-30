@@ -8,14 +8,14 @@ const socialImages = siteUrl ? [{ url: new URL(`${publicAssetPath}/og.png`, site
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: { default: "特殊IT技研 | 技術課題に、見立てと次の一手を。", template: "%s | 特殊IT技研" },
-  description: "前例も頼れる専門家も見つからない技術課題を、事業要件と現場の制約をふまえて読み解きます。一次情報の調査と検証で判断材料を整え、必要に応じて設計・実装まで支援します。",
-  openGraph: { title: "特殊IT技研 | 技術課題に、見立てと次の一手を。", description: "前例も頼れる専門家も見つからない技術課題を、一次情報の調査と検証で読み解き、必要に応じて設計・実装まで支援します。", type: "website", locale: "ja_JP", ...(socialImages ? { images: socialImages } : {}) },
-  twitter: { card: "summary_large_image", title: "特殊IT技研 | 技術課題に、見立てと次の一手を。", description: "前例も頼れる専門家も見つからない技術課題を、一次情報の調査と検証で読み解き、必要に応じて設計・実装まで支援します。", ...(socialImages ? { images: socialImages.map((image) => image.url) } : {}) },
+  description: "前例も頼れる専門家も見つからない技術課題を読み解き、判断材料、実行計画、設計・実装、プロジェクトの技術推進まで支援します。",
+  openGraph: { title: "特殊IT技研 | 技術課題に、見立てと次の一手を。", description: "未知の技術課題を一次情報から読み解き、技術判断を実行計画と設計・実装へつなげます。", type: "website", locale: "ja_JP", ...(socialImages ? { images: socialImages } : {}) },
+  twitter: { card: "summary_large_image", title: "特殊IT技研 | 技術課題に、見立てと次の一手を。", description: "未知の技術課題を一次情報から読み解き、技術判断を実行計画と設計・実装へつなげます。", ...(socialImages ? { images: socialImages.map((image) => image.url) } : {}) },
   robots: { index: true, follow: true },
   icons: { icon: `${publicAssetPath}/favicon.svg` },
 };
 
-const structuredData = { "@context": "https://schema.org", "@type": "ProfessionalService", name: "特殊IT技研", alternateName: "Specialized IT Engineering Lab", description: "複数領域にまたがる技術課題の整理、技術選定、検証・実装を支援する技術コンサルティング・エンジニアリング事業。", areaServed: "JP", ...(siteUrl ? { url: siteUrl } : {}) };
+const structuredData = { "@context": "https://schema.org", "@type": "ProfessionalService", name: "特殊IT技研", alternateName: "Specialized IT Engineering Lab", description: "複数領域にまたがる技術課題の調査、技術判断、実行計画、設計・実装、技術推進を支援するエンジニアリング事業。", areaServed: "JP", ...(siteUrl ? { url: siteUrl } : {}) };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="ja"><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body></html>;
